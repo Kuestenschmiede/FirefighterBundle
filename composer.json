@@ -1,0 +1,47 @@
+{
+  "name": "con4gis/firefighter",
+  "description": "con4gis firefighter bricks",
+  "keywords": ["con4gis", "firefighter", "rescuemap", "operations", "members", "verhicles", "contao", "c4g"],
+  "type": "contao-bundle",
+  "homepage": "https://con4gis.org",
+  "license": "LGPL-3.0+",
+  "authors":[
+    {
+      "name": "Kuestenschmiede GmbH Software & Design",
+      "homepage": "https://kuestenschmiede.de",
+      "role": "Operator"
+    }
+  ],
+  "require": {
+    "con4gis/core": "^2.2",
+    "con4gis/projects": "^0.8",
+    "con4gis/maps": "^4.1"
+  },
+  "conflict": {
+    "contao/core": "*",
+    "contao/manager-plugin": "<2.0 || >=3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "con4gis\\FirefighterBundle\\": ""
+    },
+    "classmap": [
+      "Resources/contao/"
+    ],
+    "exclude-from-classmap": [
+      "Resources/contao/config/",
+      "Resources/contao/dca/",
+      "Resources/contao/languages/",
+      "Resources/contao/templates/"
+    ]
+  },
+  "support": {
+    "issues": "https://github.com/Kuestenschmiede/FirefighterBundle/issues"
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "extra": {
+    "contao-manager-plugin": "con4gis\\FirefighterBundle\\ContaoManager\\Plugin"
+  }
+}
