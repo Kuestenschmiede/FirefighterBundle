@@ -25,7 +25,7 @@ class C4GFirefighterMembers extends C4GBrickModuleParent
 {
     protected $tableName    = 'tl_members';
     protected $modelClass   = 'Contao\MemberModel';
-//    protected $strTemplate  = 'mod_c4g_brick_simple';
+    protected $findBy       = array('disable', array(0, ""));
     protected $languageFile = 'fe_c4g_firefighter_members';
     protected $brickKey     = C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MEMBERS;
     protected $brickCaption = 'Mitglied'; //ToDO Language
