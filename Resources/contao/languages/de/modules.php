@@ -12,9 +12,11 @@
  */
 
 $GLOBALS['TL_LANG']['MOD']['C4GFirefighter']               = array('con4gis für Feuerwehren', 'feuerwehren.con4gis.org');
-$GLOBALS['TL_LANG']['MOD']['C4gFirefighterOperationTypes'] = array('Einsatzarten', 'Bestimmen Sie Einsatzarten und -symbole.');
-$GLOBALS['TL_LANG']['MOD']['C4gFirefighterOperationCategories'] = array('Einsatzkategorien', 'Bestimmen Sie Einsatzkategorien und -symbole.');
+$GLOBALS['TL_LANG']['MOD']['C4gFirefighterOperationTypes'] = array('Einsatzarten', 'Bestimmt Eure Einsatzarten und -symbole.');
+$GLOBALS['TL_LANG']['MOD']['C4gFirefighterOperationCategories'] = array('Einsatzkategorien', 'Bestimmt Eure Einsatzkategorien und -symbole.');
+$GLOBALS['TL_LANG']['MOD']['C4gFirefighterOperations']     = array('Einsätze', 'Hier können Ihr Eure Einsätze verwalten.');
 
 
 $GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('Feuerwehr - Mitgliederliste', 'Telefon- und Geburtstagsliste');
+$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperations'] = array('Feuerwehr - Einsatzliste', 'Filterbare Einsatzliste');
 

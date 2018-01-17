@@ -16,6 +16,7 @@
  * Table tl_module
  */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['C4GFirefighterMembers'] = '{title_legend},name,headline,type;{style_legend},c4g_uitheme_css_select,c4g_appearance_themeroller_css';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['C4GFirefighterOperations'] = '{title_legend},name,headline,type;{style_legend},c4g_uitheme_css_select,c4g_appearance_themeroller_css';
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['c4g_uitheme_css_select'] = array
 (

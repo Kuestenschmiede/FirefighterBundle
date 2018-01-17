@@ -24,7 +24,7 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create(con4gisFirefighterBundle::class)
-                ->setLoadAfter([con4gisCoreBundle::class],[con4gisProjectsBundle::class])
+                ->setLoadAfter([con4gisCoreBundle::class],[con4gisMapsBundle::class],[con4gisProjectsBundle::class])
         ];
     }
 }

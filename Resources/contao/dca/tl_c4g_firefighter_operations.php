@@ -10,6 +10,9 @@
  * @link      https://www.kuestenschmiede.de
  */
 
+use \con4gis\MapsBundle\Resources\contao\classes\GeoPicker;
+use con4gis\MapsBundle\Resources\contao\classes\Utils;
+
 
 /**
  * Table tl_module
@@ -23,7 +26,8 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
         'dataContainer'     => 'Table',
         'enableVersioning'  => true,
         'onsubmit_callback'           => array(
-            array('\con4gis\CoreBundle\Resources\contao\classes\C4GAutomator', 'purgeApiCache')
+            array('\con4gis\CoreBundle\Resources\contao\classes\C4GAutomator', 'purgeApiCache'),
+            array('tl_c4g_firefighter_operations', 'adjustTime')
         ),
         'databaseAssisted'  => true,
         'sql'               => array
@@ -31,7 +35,6 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'keys' => array
             (
                 'id' => 'primary',
-                'uuid' => 'unique',
             )
         )
     ),
@@ -40,18 +43,18 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
     //List
     'list' => array
     (
+
         'sorting' => array
         (
             'mode'              => 2,
-            'fields'            => array('group_Id', 'caption ASC'),
-            'panelLayout'       => 'filter;sort,search,limit',
-            #'headerFields'      => array('group_Id', 'number', 'caption'),
+            'fields'            => array('startDate DESC', 'startTime DESC','operation_type','operation_category','caption'),
+            'panelLayout'       => 'filter;sort,search,limit'
         ),
 
         'label' => array
         (
-            'fields'            => array('caption'),
-            'format'            => '<span style="color:#023770">%s</span>',
+            'fields'            => array('startDate', 'startTime','operation_type:tl_c4g_firefighter_operation_types.operation_type','operation_category:tl_c4g_firefighter_operation_categories.operation_category','caption'),
+            'showColumns'       => true
         ),
 
         'global_operations' => array
@@ -98,8 +101,15 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
     //Palettes
     'palettes' => array
     (
-        'default'   =>  '{custom_legend},caption, operation_type_id, description,leader_caption,headcount,leader_phone;{data_legend},call_sign,issi;'.
-                '{group_legend},group_id,project_id;{maps_legend},loc_geox,loc_geoy,loc_label,locstyle;'
+        '__selector__' => array('addTime'),
+        'default'      =>  '{info_legend}, operation_type, operation_category, caption, description;{date_legend},addTime,startDate,endDate;'.
+                           '{maps_legend},location,c4g_loc_geox,c4g_loc_geoy;'
+    ),
+
+    // Subpalettes
+    'subpalettes' => array
+    (
+        'addTime'   => 'startTime,endTime',
     ),
 
     //Fields
@@ -115,40 +125,10 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'sql'               => "int(10) unsigned NOT NULL default '0'"
         ),
 
-        'uuid' => array
-        (
-            'save_callback'     => array(array('tl_c4g_projects','generateUuid')),
-            'sql'               => "varchar(128) NOT NULL default ''"
-        ),
-
-        'brick_key' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_projects']['brick_key'],
-            'sorting'           => true,
-            'flag'              => 1,
-            'search'            => true,
-            'inputType'         => 'text',
-            'eval'              => array('mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 255),
-            'sql'               => "varchar(255) NOT NULL"
-        ),
-
-        'group_id' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_projects']['group_id'],
-            'exclude'           => true,
-            'sorting'           => true,
-            'search'            => true,
-            'flag'              => 1,
-            'inputType'         => 'select',
-            'foreignKey'        => 'tl_member_group.name',
-            'eval'              => array('mandatory' => true),
-            'sql'               => "int(10) unsigned NOT NULL",
-            'relation'          => array('type' => 'hasOne', 'load' => 'lazy')
-        ),
-
         'caption' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_projects']['caption'],
+            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['caption'],
+            'default'           => '',
             'sorting'           => true,
             'flag'              => 1,
             'search'            => true,
@@ -159,219 +139,133 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
 
         'description' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_projects']['description'],
-            //'exclude'                 => true,
-            'inputType'               => 'textarea',
-            'search'                  => true,
-            'eval'                    => array('tl_class'=>'long','style'=>'height:60px', 'decodeEntities'=>true),
-            'sql'                     => "text NULL"
-        ),
-
-        'last_member_id' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_projects']['last_member_id'],
-            'flag'              => 1,
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['description'],
+            'default'           => '',
+            'inputType'         => 'textarea',
             'sorting'           => true,
+            'flag'              => 1,
             'search'            => true,
+            'eval'              => array('mandatory' => true, 'tl_class'=>'long', 'rte'=>'tinyMCE', 'decodeEntities'=>true),
+            'sql'               => "text NOT NULL"
+        ),
+
+        'operation_type' => array
+        (
+            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_type'],
             'inputType'         => 'select',
-            'eval'              => array('mandatory' => true, 'tl_class' => 'w50'),
+            'default'           => 0,
+            'sorting'           => true,
+            'flag'              => 1,
+            'search'            => true,
+            'foreignKey'        => 'tl_c4g_firefighter_operation_types.operation_type',
+            'eval'              => array('mandatory' => true, 'tl_class' => 'long', 'chosen' => true, 'includeBlankOption' => false),
+            'sql'               => "int(10) unsigned NOT NULL",
+            'relation'          => array('type' => 'hasOne', 'load' => 'lazy'),
+        ),
+
+        'operation_category' => array
+        (
+            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_category'],
+            'inputType'         => 'select',
+            'default'           => 0,
+            'foreignKey'        => 'tl_c4g_firefighter_operation_categories.operation_category',
+            'eval'              => array('mandatory' => true, 'tl_class' => 'long', 'chosen' => true, 'includeBlankOption' => false),
+            'sql'               => "int(10) unsigned NOT NULL",
+            'relation'          => array('type' => 'hasOne', 'load' => 'lazy'),
+        ),
+        'addTime' => array
+        (
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['addTime'],
             'exclude'           => true,
-            'foreignKey'        => 'tl_member.firstname',
-            'relation'          => array('type' => 'hasOne', 'load' => 'lazy'),
-            'sql'               => "int(10) unsigned NOT NULL default '0'"
+            'inputType'         => 'checkbox',
+            'eval'              => array('submitOnChange'=>true, 'doNotCopy'=>true),
+            'sql'               => "char(1) NOT NULL default ''"
         ),
-
-        'is_frozen' => array(
-            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_projects']['is_frozen'],
-            //'sorting'                 => true,
-            //'flag'                    => 1,
-            //'search'                  => true,
-            'inputType'               => 'checkbox',
-            'eval'                    => array('tl_class'=>'w50'),
-            'sql'                     => "char(1) NOT NULL default '0'"
-        ),
-
-        'operation_type_id' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_rescuemap_operations']['operation_type_id'],
-            'inputType'         => 'select',
-            'foreignKey'        => 'tl_rescuemap_operation_types.operation_type',
-            'eval'              => array('mandatory' => true, 'tl_class' => 'w50'),
-            'sql'               => "int(10) unsigned NOT NULL",
-            'relation'          => array('type' => 'hasOne', 'load' => 'lazy'),
-        ),
-
-        'vehicle_id' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_rescuemap_operations']['vehicle_id'],
-            'inputType'         => 'select',
-            'foreignKey'        => 'tl_rescuemap_vehicle.caption',
-            'eval'              => array('mandatory' => true, 'tl_class' => 'w50'),
-            'sql'               => "int(10) unsigned NOT NULL",
-            'relation'          => array('type' => 'hasOne', 'load' => 'lazy'),
-        ),
-
-        'startDate' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_rescuemap_operations']['startDate'],
-            'default'                 => time(),
-            'exclude'                 => true,
-            'inputType'               => 'text',
-            'eval'                    => array('rgxp'=>'date', 'mandatory'=>true, 'doNotCopy'=>true, 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
-            'sql'                     => "int(10) unsigned NULL"
-        ),
-
-        'endDate' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_rescuemap_operations']['endDate'],
-            'default'                 => null,
-            'exclude'                 => true,
-            'inputType'               => 'text',
-            'eval'                    => array('rgxp'=>'date', 'doNotCopy'=>true, 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
-            'sql'                     => "int(10) unsigned NULL"
-        ),
-
         'startTime' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_rescuemap_operations']['startTime'],
-            'default'                 => time(),
-            'exclude'                 => true,
-            'filter'                  => true,
-            'sorting'                 => true,
-            'flag'                    => 8,
-            'inputType'               => 'text',
-            'eval'                    => array('rgxp'=>'time', 'mandatory'=>true, 'doNotCopy'=>true, 'tl_class'=>'w50'),
+            'label'            => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['startTime'],
+            'default'          => time(),
+            'exclude'          => true,
+            'filter'           => true,
+            'sorting'          => true,
+            'flag'             => 8,
+            'inputType'        => 'text',
+            'eval'             => array('rgxp'=>'time', 'mandatory'=>true, 'doNotCopy'=>true, 'tl_class'=>'w50'),
+            'load_callback'    => array
+            (
+                array('tl_c4g_firefighter_operations', 'loadTime')
+            ),
             'sql'                     => "int(10) unsigned NULL"
         ),
-
         'endTime' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_rescuemap_operations']['endTime'],
-            'default'                 => null,
+            'label'            => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['endTime'],
+            'default'          => time(),
+            'exclude'          => true,
+            'inputType'        => 'text',
+            'eval'             => array('rgxp'=>'time', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+            'load_callback'    => array
+            (
+                array('tl_c4g_firefighter_operations', 'loadTime')
+            ),
+            'save_callback'    => array
+            (
+                array('tl_c4g_firefighter_operations', 'setEmptyEndTime')
+            ),
+            'sql'              => "int(10) unsigned NULL"
+        ),
+        'startDate' => array
+        (
+            'label'            => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['startDate'],
+            'exclude'          => true,
+            'filter'           => true,
+            'sorting'          => true,
+            'inputType'        => 'text',
+            'flag'             => 6,
+            'eval'             => array('rgxp'=>'date', 'mandatory'=>true, 'doNotCopy'=>true, 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+            'sql'              => "int(10) unsigned NULL"
+        ),
+        'endDate' => array
+        (
+            'label'            => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['endDate'],
+            'default'          => null,
+            'exclude'          => true,
+            'inputType'        => 'text',
+            'eval'             => array('rgxp'=>'date', 'doNotCopy'=>true, 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+            'sql'              => "int(10) unsigned NULL"
+        ),
+        'location' => array
+        (
+            'label'            => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['location'],
+            'exclude'          => true,
+            'search'           => true,
+            'inputType'        => 'text',
+            'eval'             => array('maxlength'=>255, 'tl_class'=>'long'),
+            'sql'              => "varchar(255) NOT NULL default ''"
+        ),
+        'c4g_loc_geox' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['c4g_loc_lon'],
             'exclude'                 => true,
-            'inputType'               => 'text',
-            'eval'                    => array('rgxp'=>'time', 'doNotCopy'=>true, 'tl_class'=>'w50'),
-            'sql'                     => "int(10) unsigned NULL"
-        ),
-
-        'call_sign' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_rescuemap_operations']['call_sign'],
-            'inputType'         => 'text',
-            'eval'              => array('tl_class' => 'w50', 'maxlength' => 45),
-            'sql'               => "varchar(45) NOT NULL default ''"
-        ),
-
-        'issi' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_rescuemap_operations']['issi'],
-            'inputType'         => 'text',
-            'eval'              => array('tl_class' => 'w50', 'maxlength' => 45),
-            'sql'               => "varchar(45) NOT NULL"
-        ),
-
-        'leader_caption' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_rescuemap_operations']['leader_caption'],
-            'sorting'           => true,
-            'flag'              => 1,
-            'search'            => true,
-            'inputType'         => 'text',
-            'eval'              => array('mandatory' => false, 'tl_class' => 'w50', 'maxlength' => 255),
-            'sql'               => "varchar(255) NOT NULL"
-        ),
-
-        'headcount' => array
-        (
-            'label'             =>$GLOBALS['TL_LANG']['fe_rescuemap_operations']['headcount'],
-            'search'            =>true,
-            'inputType'         =>'text',
-            'eval'              => array('maxlength'=>64,'feEditable'=>false, 'feViewable'=>true, 'tl_class'=>'w50'),
-            'sql'               => "varchar(64) NOT NULL default ''"
-        ),
-
-        'leader_phone' => array(
-            'label'             => $GLOBALS['TL_LANG']['tl_rescuemap_operations']['leader_phone'],
-            'exclude'           => true,
-            'search'            => true,
-            'inputType'         => 'text',
-            'eval'              => array('maxlength'=>64, 'rgxp'=>'phone', 'decodeEntities'=>true, 'feEditable'=>true, 'feViewable'=>true, 'feGroup'=>'contact', 'tl_class'=>'w50'),
-            'sql'               => "varchar(64) NOT NULL default ''"
-        ),
-
-        'in_rescuemap' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_rescuemap_operations']['in_rescuemap'],
-            //'sorting'                 => true,
-            //'flag'                    => 1,
-            //'search'                  => true,
-            'inputType'               => 'checkbox',
-            'eval'                    => array('tl_class'=>'w50'),
-            'sql'                     => "char(1) NOT NULL default ''"
-        ),
-
-        'loc_caption' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_rescuemap_operations']['loc_caption'],
-            'sorting'           => true,
-            'flag'              => 1,
-            'search'            => true,
-            'inputType'         => 'text',
-            'eval'              => array('mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 255),
-            'sql'               => "varchar(255) NOT NULL"
-        ),
-
-        'loc_geox' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_rescuemap_operations']['loc_geox'],
-            'exclude'                 => true,
-            'inputType'               => 'text',
-            'eval'                    => array('maxlength'=>20, 'tl_class'=>'w50 wizard' ),
-            'save_callback'           => array(array('tl_rescuemap_operations','setLocLon')),
-            'wizard'                  => array(array('GeoPicker', 'getPickerLink')),
+            'default'                 => '',
+            'inputType'               => 'c4g_text',
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
+            'save_callback'           => array(array('tl_c4g_firefighter_operations','setLocLon')),
+            'wizard'                  => array(array('\con4gis\MapsBundle\Resources\contao\classes\GeoPicker', 'getPickerLink')),
             'sql'                     => "varchar(20) NOT NULL default ''"
         ),
 
-        'loc_geoy' => array
+        'c4g_loc_geoy' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_rescuemap_operations']['loc_geoy'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['c4g_loc_lat'],
             'exclude'                 => true,
-            'inputType'               => 'text',
-            'eval'                    => array('maxlength'=>20, 'tl_class'=>'w50 wizard' ),
-            'save_callback'           => array(array('tl_rescuemap_operations','setLocLat')),
-            'wizard'                  => array(array('GeoPicker', 'getPickerLink')),
+            'default'                 => '',
+            'inputType'               => 'c4g_text',
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
+            'save_callback'           => array(array('tl_c4g_firefighter_operations','setLocLat')),
+            'wizard'                  => array(array('\con4gis\MapsBundle\Resources\contao\classes\GeoPicker', 'getPickerLink')),
             'sql'                     => "varchar(20) NOT NULL default ''"
-        ),
-
-        'loc_label' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_rescuemap_operations']['loc_label'],
-            'exclude'                 => true,
-            'inputType'               => 'text',
-            'eval'                    => array('tl_class'=>'clr' ),
-            'sql'                     => "varchar(100) NOT NULL default ''"
-        ),
-
-        'locstyle' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_rescuemap_operations']['locstyle'],
-            'exclude'                 => true,
-            'inputType'               => 'select',
-            'options_callback'        => array('tl_rescuemap_stations','getLocStyles'),
-            'sql'                     => "int(10) unsigned NOT NULL default '0'"
-        ),
-
-        'last_station_identifier' => array
-        (
-            'label'             => $GLOBALS['TL_LANG']['tl_rescuemap_stations']['caption'],
-            'sorting'           => true,
-            'flag'              => 1,
-            'search'            => true,
-            'inputType'         => 'text',
-            'eval'              => array('mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 255),
-            'sql'               => "varchar(255) NOT NULL default '0'"
         )
-
     )
 
 );
@@ -395,23 +289,6 @@ class tl_c4g_firefighter_operations extends Backend
     public function updateDCA (DataContainer $dc)
     {
 
-    }
-
-    /**
-     * Return all Location Styles as array
-     * @param object
-     * @return array
-     */
-    public function getLocStyles(DataContainer $dc)
-    {
-        $locStyles = $this->Database->prepare("SELECT id,name FROM tl_c4g_map_locstyles ORDER BY name")
-            ->execute();
-        $return[''] = '-';
-        while ($locStyles->next())
-        {
-            $return[$locStyles->id] = $locStyles->name;
-        }
-        return $return;
     }
 
     /**
@@ -444,17 +321,81 @@ class tl_c4g_firefighter_operations extends Backend
         return $varValue;
     }
 
+    /**
+     * Set the timestamp to 1970-01-01 (see #26)
+     *
+     * @param integer $value
+     *
+     * @return integer
+     */
+    public function loadTime($value)
+    {
+        return strtotime('1970-01-01 ' . date('H:i:s', $value));
+    }
 
+
+    /**
+     * Automatically set the end time if not set
+     *
+     * @param mixed         $varValue
+     * @param DataContainer $dc
+     *
+     * @return string
+     */
+    public function setEmptyEndTime($varValue, DataContainer $dc)
+    {
+        if ($varValue === null)
+        {
+            $varValue = $dc->activeRecord->startTime;
+        }
+
+        return $varValue;
+    }
+
+    /**
+     * Adjust start end end time of the event based on date, span, startTime and endTime
+     *
+     * @param DataContainer $dc
+     */
+    public function adjustTime(DataContainer $dc)
+    {
+        // Return if there is no active record (override all)
+        if (!$dc->activeRecord)
+        {
+            return;
+        }
+
+        $arrSet['startTime'] = $dc->activeRecord->startDate;
+        $arrSet['endTime'] = $dc->activeRecord->startDate;
+
+        // Set end date
+        if ($dc->activeRecord->endDate)
+        {
+            if ($dc->activeRecord->endDate > $dc->activeRecord->startDate)
+            {
+                $arrSet['endDate'] = $dc->activeRecord->endDate;
+                $arrSet['endTime'] = $dc->activeRecord->endDate;
+            }
+            else
+            {
+                $arrSet['endDate'] = $dc->activeRecord->startDate;
+                $arrSet['endTime'] = $dc->activeRecord->startDate;
+            }
+        }
+
+        // Add time
+        if ($dc->activeRecord->addTime)
+        {
+            $arrSet['startTime'] = strtotime(date('Y-m-d', $arrSet['startTime']) . ' ' . date('H:i:s', $dc->activeRecord->startTime));
+            $arrSet['endTime'] = strtotime(date('Y-m-d', $arrSet['endTime']) . ' ' . date('H:i:s', $dc->activeRecord->endTime));
+        }
+
+        // Adjust end time of "all day" events
+        elseif (($dc->activeRecord->endDate && $arrSet['endDate'] == $arrSet['endTime']) || $arrSet['startTime'] == $arrSet['endTime'])
+        {
+            $arrSet['endTime'] = (strtotime('+ 1 day', $arrSet['endTime']) - 1);
+        }
+
+        $this->Database->prepare("UPDATE tl_c4g_firefighter_operations %s WHERE id=?")->set($arrSet)->execute($dc->id);
+    }
 }
-
-
-
-////Callbacks
-//$GLOBALS['TL_DCA']['tl_c4g_projects']['config']['onload_callback'][]   = array('tl_rescuemap_operations', 'updateDCA');
-
-
-////Palettes
-//$GLOBALS['TL_DCA']['tl_c4g_projects']['palettes']['default'] =
-//    str_replace('{redirect_legend', '{custom_legend},caption, operation_type_id, description,leader_caption,headcount,leader_phone;{data_legend},call_sign,issi;'.
-//                '{group_legend},group_id,project_id;{maps_legend},loc_geox,loc_geoy,loc_label,locstyle;'.
-//                '{redirect_legend', $GLOBALS['TL_DCA']['tl_c4g_projects']['palettes']['default']);
