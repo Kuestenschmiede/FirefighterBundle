@@ -3,7 +3,7 @@
 namespace con4gis\FirefighterBundle\ContaoManager;
 
 use con4gis\CoreBundle\con4gisCoreBundle;
-use con4gis\PoimanagerBundle\con4gisFirefighterBundle;
+use con4gis\FirefighterBundle\con4gisFirefighterBundle;
 use con4gis\ProjectsBundle\con4gisProjectsBundle;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Config\ConfigInterface;
