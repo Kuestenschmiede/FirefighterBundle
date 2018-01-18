@@ -22,9 +22,9 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
     (
         'dataContainer'     => 'Table',
         'enableVersioning'  => 'true',
-        'onsubmit_callback'           => array(
-            array('\con4gis\CoreBundle\Resources\contao\classes\C4GAutomator', 'purgeApiCache')
-        ),
+//        'onsubmit_callback'           => array(
+//            array('\con4gis\CoreBundle\Resources\contao\classes\C4GAutomator', 'purgeApiCache')
+//        ),
         'sql'               => array
         (
             'keys' => array
@@ -40,7 +40,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
     (
         'sorting' => array
         (
-            'mode'              => 2,
+            'mode'              => 11,
             'fields'            => array('unit_type'),
             'panelLayout'       => 'filter;sort,search,limit',
             'headerFields'      => array('unit_type'),
@@ -49,7 +49,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
         'label' => array
         (
             'fields'            => array('unit_type'),
-            'format'            => '<span style="color:#E30518">%s</span>',
+            'format'            => '%s',
         ),
 
         'global_operations' => array
@@ -96,7 +96,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
     //Palettes
     'palettes' => array
     (
-        'default'   =>  '{data_legend}, uuid, unit_type, unit_locstyle',
+        'default'   =>  '{data_legend}, unit_type, unit_locstyle',
     ),
 
 
@@ -118,6 +118,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
             'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['unit_type'],
             'flag'              => 1,
             'sorting'           => true,
+            'default'           => '',
             'search'            => true,
             'inputType'         => 'text',
             'eval'              => array('mandatory' => true, 'tl_class' => 'long'),
@@ -129,6 +130,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
             'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['unit_locstyle'],
             'inputType'         => 'select',
             //'eval'              => array('tl_class' => 'w50'),
+            'default'           => '0',
             'foreignKey'        => 'tl_c4g_map_locstyles.name',
             'relation'          => array('type' => 'hasOne', 'load' => 'lazy'),
             'sql'               => "int(10) unsigned NOT NULL default '0'"

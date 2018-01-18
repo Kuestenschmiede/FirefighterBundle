@@ -23,7 +23,7 @@ $GLOBALS['con4gis']['firefighter']['installed']    = true;
 array_insert( $GLOBALS['FE_MOD']['con4gis'], $GLOBALS['con4gis']['maps']['installed']?1:0, array
   (
     'C4GFirefighterMembers' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterMembers',
-//    'C4GFirefighterOperations' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperations',
+    'C4GFirefighterOperations' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperations',
   )
 );
 
@@ -45,6 +45,22 @@ array_insert($GLOBALS['BE_MOD'], array_search('content', array_keys($GLOBALS['BE
         'C4gFirefighterOperations' => array
         (
             'tables'    => array('tl_c4g_firefighter_operations')
+        ),
+        'C4gFirefighterVehicleTypes' => array
+        (
+            'tables'    => array('tl_c4g_firefighter_vehicle_types')
+        ),
+        'C4gFirefighterVehicles' => array
+        (
+            'tables'    => array('tl_c4g_firefighter_vehicles')
+        ),
+        'C4gFirefighterUnitTypes' => array
+        (
+            'tables'    => array('tl_c4g_firefighter_unit_types')
+        ),
+        'C4gFirefighterUnits' => array
+        (
+            'tables'    => array('tl_c4g_firefighter_units')
         )
     )
 ));

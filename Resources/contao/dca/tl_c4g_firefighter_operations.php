@@ -95,6 +95,13 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
                 'href'          => 'act=show',
                 'icon'          => 'show.gif',
             ),
+            'toggle' => array
+            (
+                'label'           => &$GLOBALS['TL_LANG']['tl_content']['toggle'],
+                'icon'            => 'visible.gif',
+                'attributes'      => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
+                'button_callback' => array('tl_c4g_firefighter_operations', 'toggleIcon')
+            ),
         )
     ),
 
@@ -103,7 +110,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
     (
         '__selector__' => array('addTime'),
         'default'      =>  '{info_legend}, operation_type, operation_category, caption, description;{date_legend},addTime,startDate,endDate;'.
-                           '{maps_legend},location,c4g_loc_geox,c4g_loc_geoy;'
+                           '{maps_legend},location,c4g_loc_geox,c4g_loc_geoy;{section_legend},vehicles,units;{media_legend},gallery,pressRelease1,pressRelease2,pressRelease3;{publish_legend},published;'
     ),
 
     // Subpalettes
@@ -265,7 +272,79 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'save_callback'           => array(array('tl_c4g_firefighter_operations','setLocLat')),
             'wizard'                  => array(array('\con4gis\MapsBundle\Resources\contao\classes\GeoPicker', 'getPickerLink')),
             'sql'                     => "varchar(20) NOT NULL default ''"
-        )
+        ),
+
+        'vehicles' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['vehicles'],
+            'exclude'                 => true,
+            'inputType'               => 'select',
+//            'options_callback'        => array('tl_c4g_map_profiles','getAllBaseLayers'),
+            'foreignKey'              => 'tl_c4g_firefighter_vehicles.caption',
+            'eval'                    => array('chosen'=>true, 'mandatory'=>false, 'multiple'=>true),
+            'sql'                     => "blob NULL"
+        ),
+
+        'units' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['units'],
+            'exclude'                 => true,
+            'inputType'               => 'select',
+//            'options_callback'        => array('tl_c4g_map_profiles','getAllBaseLayers'),
+            'foreignKey'              => 'tl_c4g_firefighter_units.caption',
+            'eval'                    => array('chosen'=>true, 'mandatory'=>false, 'multiple'=>true),
+            'sql'                     => "blob NULL"
+        ),
+
+        'gallery' => array
+        (
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['gallery'],
+            'inputType'         => 'fileTree',
+            'sorting'           => false,
+            'search'            => false,
+            'extensions'        => 'jpg, jpeg, png, tif',
+            'exclude'           => true,
+            'eval'              => array('filesOnly'=>true, 'files'=>true, 'fieldType'=>'checkbox', 'tl_class'=>'long clr', 'extensions'=>Config::get('validImageTypes'), 'multiple'=>true),
+            'sql'               => "blob NULL"
+        ),
+
+        'pressRelease1' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['pressRelease1'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'url', 'multiple' => false,'decodeEntities'=>true, 'maxlength'=>255, 'fieldType'=>'radio', 'filesOnly'=>false, 'tl_class'=>'long wizard'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+
+        'pressRelease2' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['pressRelease2'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'url', 'multiple' => false,'decodeEntities'=>true, 'maxlength'=>255, 'fieldType'=>'radio', 'filesOnly'=>false, 'tl_class'=>'long wizard'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'pressRelease3' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['pressRelease3'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'url', 'multiple' => false,'decodeEntities'=>true, 'maxlength'=>255, 'fieldType'=>'radio', 'filesOnly'=>false, 'tl_class'=>'long wizard'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+
+        'published' => array(
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['published'],
+            'default'           => '',
+            'inputType'         => 'checkbox',
+            'eval'              => array('tl_class'=>'w50'),
+            'sql'               => "char(1) NOT NULL default ''"
+        ),
+
     )
 
 );
@@ -398,4 +477,61 @@ class tl_c4g_firefighter_operations extends Backend
 
         $this->Database->prepare("UPDATE tl_c4g_firefighter_operations %s WHERE id=?")->set($arrSet)->execute($dc->id);
     }
+
+    /**
+     * Return the "toggle visibility" button
+     *
+     * @param array  $row
+     * @param string $href
+     * @param string $label
+     * @param string $title
+     * @param string $icon
+     * @param string $attributes
+     *
+     * @return string
+     */
+    public function toggleIcon($row, $href, $label, $title, $icon, $attributes)
+    {
+        if (strlen(Input::get('tid')))
+        {
+            $this->toggleVisibility(Input::get('tid'), (Input::get('state') == 1), (@func_get_arg(12) ?: null));
+            $this->redirect($this->getReferer());
+        }
+
+        $href .= '&amp;id='.Input::get('id').'&amp;tid='.$row['id'].'&amp;state='.$row['published'];
+
+        if (!$row['published'])
+        {
+            $icon = 'invisible.gif';
+        }
+
+        return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
+    }
+
+
+    /**
+     * Toggle the visibility of an element
+     *
+     * @param integer       $intId
+     * @param boolean       $blnVisible
+     * @param DataContainer $dc
+     */
+    public function toggleVisibility($intId, $blnVisible, DataContainer $dc=null)
+    {
+        // Check permissions to edit
+        Input::setGet('id', $intId);
+        Input::setGet('act', 'toggle');
+
+        $objVersions = new Versions('tl_c4g_firefighter_operations', $intId);
+        $objVersions->initialize();
+
+
+        // Update the database
+        $this->Database->prepare("UPDATE tl_c4g_firefighter_operations SET tstamp=". time() .", published='" . ($blnVisible ? '1' : '') . "' WHERE id=?")
+            ->execute($intId);
+
+        $objVersions->create();
+        $this->log('A new version of record "tl_c4g_firefighter_operations.id='.$intId.'" has been created'.$this->getParentEntries('tl_c4g_firefighter_operations', $intId), __METHOD__, TL_GENERAL);
+    }
+
 }

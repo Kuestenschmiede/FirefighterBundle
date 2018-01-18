@@ -22,9 +22,9 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicle_types'] = array
     (
         'dataContainer'     => 'Table',
         'enableVersioning'  => 'true',
-        'onsubmit_callback'           => array(
-            array('\con4gis\CoreBundle\Resources\contao\classes\C4GAutomator', 'purgeApiCache')
-        ),
+//        'onsubmit_callback'           => array(
+//            array('\con4gis\CoreBundle\Resources\contao\classes\C4GAutomator', 'purgeApiCache')
+//        ),
         'sql'               => array
         (
             'keys' => array
@@ -40,16 +40,16 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicle_types'] = array
     (
         'sorting' => array
         (
-            'mode'              => 2,
-            'fields'            => array('vehicle_opta','vehicle_type'),
+            'mode'              => 11,
+            'fields'            => array('vehicle_type'),
             'panelLayout'       => 'filter;sort,search,limit',
             //'headerFields'      => array('vehicle_opta','vehicle_type'),
         ),
 
         'label' => array
         (
-            'fields'            => array('vehicle_opta','vehicle_type'),
-            'format'            => '<span style="color:#023770">%s</span> <span style="color:#E30518">%s</span>',
+            'fields'            => array('vehicle_type'),
+            'format'            => '%s',
         ),
 
         'global_operations' => array
@@ -96,7 +96,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicle_types'] = array
     //Palettes
     'palettes' => array
     (
-        'default'   =>  '{data_legend},vehicle_type,vehicle_langtext,vehicle_opta,vehicle_locstyle',
+        'default'   =>  '{data_legend},vehicle_type,vehicle_langtext,vehicle_locstyle',
     ),
 
 
@@ -117,6 +117,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicle_types'] = array
         (
             'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicle_types']['vehicle_type'],
             'flag'              => 1,
+            'default'           => '',
             'sorting'           => true,
             'search'            => true,
             'inputType'         => 'text',
@@ -128,6 +129,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicle_types'] = array
         (
             'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicle_types']['vehicle_langtext'],
             'sorting'           => true,
+            'default'           => '',
             'flag'              => 1,
             'search'            => true,
             'inputType'         => 'text',
@@ -135,20 +137,22 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicle_types'] = array
             'sql'               => "varchar(255) NOT NULL"
         ),
 
-        'vehicle_opta' => array(
-            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicle_types']['vehicle_opta'],
-            'sorting'                 => true,
-            'flag'                    => 1,
-            'search'                  => true,
-            'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>true, 'rgxp'=>'digit'),
-            'sql'                     => "int(10) unsigned NOT NULL"
-        ),
+//        'vehicle_opta' => array(
+//            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicle_types']['vehicle_opta'],
+//            'sorting'                 => true,
+//            'default'                 => '0',
+//            'flag'                    => 1,
+//            'search'                  => true,
+//            'inputType'               => 'text',
+//            'eval'                    => array('mandatory'=>false, 'rgxp'=>'digit'),
+//            'sql'                     => "int(10) unsigned NOT NULL"
+//        ),
 
         'vehicle_locstyle' => array
         (
             'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicle_types']['vehicle_locstyle'],
             'inputType'         => 'select',
+            'default'           => '0',
             //'eval'              => array('tl_class' => 'w50'),
             'foreignKey'        => 'tl_c4g_map_locstyles.name',
             'relation'          => array('type' => 'hasOne', 'load' => 'lazy'),

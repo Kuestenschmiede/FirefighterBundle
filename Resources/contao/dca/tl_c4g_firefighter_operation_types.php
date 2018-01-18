@@ -47,7 +47,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operation_types'] = array
         'label' => array
         (
             'fields'            => array('operation_type'),
-            'format'            => '<span style="color:#023770">%s </span>',
+            'format'            => '%s',
         ),
 
         'global_operations' => array
