@@ -10,20 +10,53 @@
  * @link      https://www.kuestenschmiede.de
  */
 
-/** FIELDS */
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['firstname'] = 'Vorname';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['lastname']  = 'Name';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['email']     = 'Email';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['phone']     = 'Telefon';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['mobile']    = 'Mobil';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['fax']       = 'Fax';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['birthdate'] = 'Geburtsdatum';
+/** SETTINGS */
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['brickCaption'] = 'Einsatz';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['brickCaptionPlural'] = 'Einsätze';
 
-/** DESCRIPTIONS */
-//$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['desc_firstname'] = 'Geben Sie den Vornamen des Kunden ein.';
-//$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['desc_lastname']  = 'Geben Sie den Namen des Kunden ein.';
-//$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['desc_email']     = 'Geben Sie ihre E-Mail-Adresse ein';
-//$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['desc_phone']     = 'Geben Sie ihre Telefonnumer ein';
-//$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['desc_mobile']    = 'Geben Sie ihre Telefonnumer ein';
-//$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['desc_fax']       = 'Geben Sie ihre Faxnummer ein';
-//$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['desc_birthdate'] = 'Geben Sie ihr Geburtsdatum ein.';
+/** HEADLINES */
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['infoHeadline'] = 'Einsatzbericht';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['dateHeadline'] = 'Zeitangaben';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['mapsHeadline'] = 'Ortsangaben';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['sectionHeadline'] = 'Fahrzeuge / Einheiten';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['mediaHeadline'] = 'Dokumentation';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['publishHeadline'] = 'Freigabeeinstellungen';
+
+/** Fieldnames */
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationType'] = 'Einsatzart';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationCategory'] = 'Einsatzkategorie';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption'] = 'Einsatzbezeichnung';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description'] = 'Einsatzbericht';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startDate'] = 'Einsatzdatum';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startTime'] = 'Alarmierung';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['endDate'] = 'Enddatum';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['endTime'] = 'Einsatzende';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['location'] = 'Einsatzort';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['geopicker'] = 'Geopicker';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['vehicles'] = 'Alarmierte Fahrzeuge';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['units'] = 'Alarmierte Einheiten';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['gallery'] = 'Bilddateien';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease1'] = 'Pressebericht 1';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease2'] = 'Pressebericht 2';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease3'] = 'Pressebericht 3';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['published'] = 'Veröffentlichen';
+
+/** Descriptions */
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_operationType'] = 'Die Hauptkategorie des Einsatzes.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_operationCategory'] = 'Die Unterkategorie des Einsatzes.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_caption'] = 'Titel des Einsatzes.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_description'] = 'Veröffentlichter Kurzbericht des Einsatzes.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_startDate'] = 'Datum des Einsatzes.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_startTime'] = 'Uhrzeit der Alarmierung.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_endDate'] = 'Datum bei mehrtägigen Einsätzen.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_endTime'] = 'Uhrzeit Einsatzende.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_location'] = 'Freitextfeld für Ortsnamen.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_geopicker'] = 'Bestimmen Sie die Einsatzposition.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_vehicles'] = 'Welche Fahrzeuge wurden alarmiert?';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_units'] = 'Welche Einheiten wurden alarmiert?';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_gallery'] = 'Dem Einsatz zugeordnete Bilder.';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease1'] = 'Link zum Pressebericht';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease2'] = 'Link zum Pressebericht';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease3'] = 'Link zum Pressebericht';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_published'] = 'Ist bzw. soll der Einsatz veröffentlicht werden?';
+

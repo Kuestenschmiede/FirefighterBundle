@@ -72,3 +72,9 @@ if ('BE' === TL_MODE) {
 
 /** Models */
 $GLOBALS['TL_MODELS']['tl_c4g_firefighter_operations'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationsModel';
+$GLOBALS['TL_MODELS']['tl_c4g_firefighter_operation_types'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationTypesModel';
+$GLOBALS['TL_MODELS']['tl_c4g_firefighter_operation_categories'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationCategoriesModel';
+$GLOBALS['TL_MODELS']['tl_c4g_firefighter_vehicle_types'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterVehicleTypesModel';
+$GLOBALS['TL_MODELS']['tl_c4g_firefighter_vehicles'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterVehiclesModel';
+$GLOBALS['TL_MODELS']['tl_c4g_firefighter_unit_types'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterUnitTypesModel';
+$GLOBALS['TL_MODELS']['tl_c4g_firefighter_units'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterUnitsModel';

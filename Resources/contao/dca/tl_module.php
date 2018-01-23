@@ -16,7 +16,7 @@
  * Table tl_module
  */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['C4GFirefighterMembers'] = '{title_legend},name,headline,type;{style_legend},c4g_uitheme_css_select,c4g_appearance_themeroller_css';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['C4GFirefighterOperations'] = '{title_legend},name,headline,type;{style_legend},c4g_uitheme_css_select,c4g_appearance_themeroller_css';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['C4GFirefighterOperations'] = '{title_legend},name,headline,type;{style_legend},c4g_uitheme_css_select,c4g_appearance_themeroller_css,contentid';
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['c4g_uitheme_css_select'] = array
 (
@@ -37,4 +37,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['c4g_appearance_themeroller_css'] = ar
     'inputType'               => 'fileTree',
     'eval'                    => array('tl_class'=>'long wizard', 'fieldType'=>'radio', 'files'=>true, 'extensions'=>'css'),
     'sql'                     => "binary(16) NULL"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['contentid'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['fields']['contentid'],
+    'exclude'                 => true,
+    'options_callback'        => array('con4gis\ProjectsBundle\Classes\Common\C4GBrickCommon','getContentId'),
+    'inputType'               => 'select',
+    'eval'                    => array('tl_class'=>'clr long wizard', 'includeBlankOption' => true),
+    'sql'                     => "varchar(128) NULL"
 );
