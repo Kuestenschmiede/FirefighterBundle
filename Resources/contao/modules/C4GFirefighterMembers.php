@@ -13,12 +13,15 @@
 namespace con4gis\FirefighterBundle\Resources\contao\modules;
 
 use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
+use con4gis\ProjectsBundle\Classes\Fieldlist\C4GBrickFieldSourceType;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GDateField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GEmailField;
+use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GImageField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GKeyField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GNumberField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTelField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTextField;
+use con4gis\ProjectsBundle\Classes\Files\C4GBrickFileType;
 use con4gis\ProjectsBundle\Classes\Framework\C4GBrickModuleParent;
 use con4gis\ProjectsBundle\Classes\Views\C4GBrickViewType;
 
@@ -54,6 +57,16 @@ class C4GFirefighterMembers extends C4GBrickModuleParent
         $idField->setEditable(false);
         $idField->setFormField(false);
         $fieldList[] = $idField;
+
+        $imgField = new C4GImageField();
+        $imgField->setFieldName('memberImage');
+        $imgField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['avatar']);
+        $imgField->setFileTypes(C4GBrickFileType::IMAGES_PNG_JPG);
+        $imgField->setFormField(true);
+        $imgField->setTableColumn(false);
+        $imgField->setDeserialize(true);
+        $imgField->setShowIfEmpty(false);
+        $fieldList[] = $imgField;
 
         $lastnameField = new C4GTextField();
         $lastnameField->setFieldName('lastname');

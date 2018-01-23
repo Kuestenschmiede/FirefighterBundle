@@ -18,6 +18,7 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['phone']     = 'Telefon';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['mobile']    = 'Mobil';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['fax']       = 'Fax';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['birthdate'] = 'Geburtsdatum';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['avatar']    = 'Avatar';
 
 /** DESCRIPTIONS */
 //$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['desc_firstname'] = 'Geben Sie den Vornamen des Kunden ein.';

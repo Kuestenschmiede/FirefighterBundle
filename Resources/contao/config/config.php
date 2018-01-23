@@ -42,10 +42,6 @@ array_insert($GLOBALS['BE_MOD'], array_search('content', array_keys($GLOBALS['BE
         (
             'tables'    => array('tl_c4g_firefighter_operation_categories')
         ),
-        'C4gFirefighterOperations' => array
-        (
-            'tables'    => array('tl_c4g_firefighter_operations')
-        ),
         'C4gFirefighterVehicleTypes' => array
         (
             'tables'    => array('tl_c4g_firefighter_vehicle_types')
@@ -61,6 +57,10 @@ array_insert($GLOBALS['BE_MOD'], array_search('content', array_keys($GLOBALS['BE
         'C4gFirefighterUnits' => array
         (
             'tables'    => array('tl_c4g_firefighter_units')
+        ),
+        'C4gFirefighterOperations' => array
+        (
+            'tables'    => array('tl_c4g_firefighter_operations')
         )
     )
 ));

@@ -110,7 +110,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
     (
         '__selector__' => array('addTime'),
         'default'      =>  '{info_legend}, operation_type, operation_category, caption, description;{date_legend},addTime,startDate,endDate;'.
-                           '{maps_legend},location,c4g_loc_geox,c4g_loc_geoy;{section_legend},vehicles,units;{media_legend},gallery,pressRelease1,pressRelease2,pressRelease3;{publish_legend},published;'
+                           '{maps_legend},location,loc_geox,loc_geoy;{section_legend},vehicles,units;{media_legend},gallery,pressRelease1,pressRelease2,pressRelease3;{publish_legend},published;'
     ),
 
     // Subpalettes
@@ -250,7 +250,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'eval'             => array('maxlength'=>255, 'tl_class'=>'long'),
             'sql'              => "varchar(255) NOT NULL default ''"
         ),
-        'c4g_loc_geox' => array
+        'loc_geox' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['c4g_loc_lon'],
             'exclude'                 => true,
@@ -262,7 +262,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'sql'                     => "varchar(20) NOT NULL default ''"
         ),
 
-        'c4g_loc_geoy' => array
+        'loc_geoy' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['c4g_loc_lat'],
             'exclude'                 => true,
