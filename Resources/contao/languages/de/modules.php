@@ -22,5 +22,6 @@ $GLOBALS['TL_LANG']['MOD']['C4gFirefighterUnits']          = array('Einheiten', 
 
 
 $GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('Feuerwehr - Mitgliederliste', 'Telefon- und Geburtstagsliste');
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperations'] = array('Feuerwehr - Einsatzliste', 'Filterbare Einsatzliste');
+$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperations'] = array('Feuerwehr - Einsatztabelle', 'Filterbare Einsatztabelle');
+$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperationList'] = array('Feuerwehr - Einsatzliste', 'Einfache Einsatzliste');
 

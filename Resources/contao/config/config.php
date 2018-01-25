@@ -24,6 +24,7 @@ array_insert( $GLOBALS['FE_MOD']['con4gis'], $GLOBALS['con4gis']['maps']['instal
   (
     'C4GFirefighterMembers' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterMembers',
     'C4GFirefighterOperations' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperations',
+    'C4GFirefighterOperationList' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperationList',
   )
 );
 

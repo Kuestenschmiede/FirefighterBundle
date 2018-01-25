@@ -16,7 +16,8 @@
  * Table tl_module
  */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['C4GFirefighterMembers'] = '{title_legend},name,headline,type;{style_legend},c4g_uitheme_css_select,c4g_appearance_themeroller_css';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['C4GFirefighterOperations'] = '{title_legend},name,headline,type;{style_legend},c4g_uitheme_css_select,c4g_appearance_themeroller_css,contentid';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['C4GFirefighterOperations'] = '{title_legend},name,headline,type;{style_legend},c4g_uitheme_css_select,c4g_appearance_themeroller_css;{settings_legend},contentid';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['C4GFirefighterOperationList'] = '{title_legend},name,headline,type;{settings_legend},c4g_redirect_to,c4g_row_count;';
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['c4g_uitheme_css_select'] = array
 (
@@ -47,4 +48,25 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['contentid'] = array
     'inputType'               => 'select',
     'eval'                    => array('tl_class'=>'clr long wizard', 'includeBlankOption' => true),
     'sql'                     => "varchar(128) NULL"
+);
+$GLOBALS['TL_DCA']['tl_module']['fields']['c4g_redirect_to'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['fields']['c4g_redirect_to'],
+    'exclude'                 => true,
+    'inputType'               => 'pageTree',
+    'foreignKey'              => 'tl_page.title',
+    'eval'                    => array('mandatory'=>true, 'fieldType'=>'radio'),
+    'sql'                     => "int(10) unsigned NOT NULL default '0'",
+    'relation'                => array('type'=>'hasOne', 'load'=>'eager')
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['c4g_row_count'] = array(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['fields']['c4g_row_count'],
+    'sorting'                 => true,
+    'default'                 => 0,
+    'flag'                    => 1,
+    'search'                  => true,
+    'inputType'               => 'text',
+    'eval'                    => array('tl_class'=>'w50', 'mandatory'=>false, 'rgxp'=>'digit'),
+    'sql'                     => "int(10) unsigned NOT NULL default = 0"
 );

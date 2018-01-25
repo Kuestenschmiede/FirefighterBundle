@@ -33,7 +33,7 @@ use con4gis\ProjectsBundle\Classes\Framework\C4GBrickModuleParent;
 use con4gis\ProjectsBundle\Classes\Lists\C4GBrickRenderMode;
 use con4gis\ProjectsBundle\Classes\Views\C4GBrickViewType;
 
-class C4GFirefighterOperations extends C4GBrickModuleParent
+class C4GFirefighterOperationList extends C4GBrickModuleParent
 {
     protected $tableName    = 'tl_c4g_firefighter_operations';
     protected $modelClass   = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationsModel';
@@ -55,6 +55,10 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
         $this->dialogParams->setTabContent(true);
         $this->dialogParams->setWithNextPrevButtons(false);
         $this->listParams->setWithExportButtons(false);
+        $this->listParams->setRenderMode(C4GBrickRenderMode::LISTBASED);
+        $this->listParams->setCaptionField('caption');
+        $this->listParams->setRowCount($this->c4g_row_count);
+        $this->listParams->setRedirectTo($this->c4g_redirect_to);
     }
 
     /**
@@ -90,7 +94,7 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
         $startTimeField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startTime']);
 //        $startTimeField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_startTime']);
         $startTimeField->setFieldName('startTime');
-        $startTimeField->setTableColumn(true);
+        $startTimeField->setTableColumn(false);
         $startTimeField->setShowIfEmpty(false);
         $fieldList[] = $startTimeField;
 
@@ -154,7 +158,7 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
 //        $locationField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_location']);
         $locationField->setColumnWidth(20);
         $locationField->setSortColumn(false);
-        $locationField->setTableColumn(true);
+        $locationField->setTableColumn(false);
         $locationField->setMandatory(false);
         $fieldList[] = $locationField;
 
