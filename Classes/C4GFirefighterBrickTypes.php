@@ -16,4 +16,6 @@ class C4GFirefighterBrickTypes
 {
     const BRICK_C4G_FIREFIGHTER_MEMBERS = 'brick_c4g_firefighter_members';
     const BRICK_C4G_FIREFIGHTER_OPERATIONS = 'brick_c4g_firefighter_operations';
+
+    const BRICK_C4G_FIREFIGHTER_MAP = 'ffOperat';
 }

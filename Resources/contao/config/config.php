@@ -11,6 +11,8 @@
  * @link      https://www.kuestenschmiede.de
  */
 
+use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
+
 /**
  * Global settings
  */
@@ -79,3 +81,9 @@ $GLOBALS['TL_MODELS']['tl_c4g_firefighter_vehicle_types'] = 'con4gis\Firefighter
 $GLOBALS['TL_MODELS']['tl_c4g_firefighter_vehicles'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterVehiclesModel';
 $GLOBALS['TL_MODELS']['tl_c4g_firefighter_unit_types'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterUnitTypesModel';
 $GLOBALS['TL_MODELS']['tl_c4g_firefighter_units'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterUnitsModel';
+
+/** Kartenstrukturelemente */
+$GLOBALS['c4g_locationtypes'][] = C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP;
+
+$GLOBALS['TL_HOOKS']['c4gAddLocationsParent']['operationMap'] = array('con4gis\FirefighterBundle\Classes\C4GFirefighterFrontend','addLocations');
+
