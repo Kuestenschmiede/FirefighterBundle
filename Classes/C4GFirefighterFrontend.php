@@ -13,12 +13,17 @@
 
 namespace con4gis\FirefighterBundle\Classes;
 
+use con4gis\CoreBundle\Resources\contao\models\C4gSettingsModel;
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationCategoriesModel;
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationsModel;
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationTypesModel;
 use con4gis\ProjectsBundle\Classes\Actions\C4GBrickActionType;
 use con4gis\ProjectsBundle\Classes\Maps\C4GBrickMapFrontendParent;
 
+/**
+ * Class C4GFirefighterFrontend
+ * @package con4gis\FirefighterBundle\Classes
+ */
 class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
 {
     private $arrAllowedLocationTypes = array
@@ -161,14 +166,28 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
 
             $description = C4GFirefighterFrontend::addPopupDescriptionElement('Einsatzbericht', $element->description);
 
+            $subtitle = $typeName;
+            if ($categoryName) {
+                $subtitle = $typeName.' ('.$categoryName.')';
+            }
+
+
+            $settings = C4gSettingsModel::findAll();
+            $pageId = 0;
+            if ($settings) {
+                $settings = $settings[0];
+                $pageId   = $settings->redirect_to_operations;
+            }
+
             $popupInfo =
                 C4GFirefighterFrontend::addPopupKeyElement($element->id) .
-                C4GFirefighterFrontend::addPopupHeader($caption, $typeName) .
+                C4GFirefighterFrontend::addPopupHeader($caption, $subtitle) .
                 "<ul>" .
-                C4GFirefighterFrontend::addPopupListElement('Kategorie', $categoryName) .
+                C4GFirefighterFrontend::addPopupListElement('Einsatzdatum', $element->startDate) .
+                C4GFirefighterFrontend::addPopupListElement('Ortsbeschreibung', $element->location) .
                 "</ul>" .
                 $description .
-                C4GFirefighterFrontend::addPopupButton(239, C4GBrickActionType::IDENTIFIER_DIALOG . ':' . $element->id, 'Details anzeigen', true, 0, 0, C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_OPERATIONS);
+                C4GFirefighterFrontend::addPopupButton($pageId, C4GBrickActionType::IDENTIFIER_DIALOG . ':' . $element->id, 'Weiterlesen', false, 0, 0, C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_OPERATIONS);
 
 
             $layerContent = $this->addMapStructureContent(
