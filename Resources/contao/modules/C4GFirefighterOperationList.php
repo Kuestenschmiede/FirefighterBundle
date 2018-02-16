@@ -12,6 +12,7 @@
 
 namespace con4gis\FirefighterBundle\Resources\contao\modules;
 
+use con4gis\CoreBundle\Resources\contao\models\C4gSettingsModel;
 use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterVehiclesModel;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GCheckboxField;
@@ -58,7 +59,8 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $this->listParams->setRenderMode(C4GBrickRenderMode::LISTBASED);
         $this->listParams->setCaptionField('caption');
         $this->listParams->setRowCount($this->c4g_row_count);
-        $this->listParams->setRedirectTo($this->c4g_redirect_to);
+
+        $this->listParams->setRedirectTo($this->settings->redirect_to_operations);
     }
 
     /**
