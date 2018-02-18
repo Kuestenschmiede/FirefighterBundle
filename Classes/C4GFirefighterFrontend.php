@@ -187,7 +187,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                 C4GFirefighterFrontend::addPopupListElement('Ortsbeschreibung', $element->location) .
                 "</ul>" .
                 $description .
-                C4GFirefighterFrontend::addPopupButton($pageId, C4GBrickActionType::IDENTIFIER_DIALOG . ':' . $element->id, 'Weiterlesen', false, 0, 0, C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_OPERATIONS);
+                C4GFirefighterFrontend::addRedirectButton($pageId, C4GBrickActionType::IDENTIFIER_DIALOG . ':' . $element->id, 'Weiterlesen', false, 0, 0, C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_OPERATIONS);
 
 
             $layerContent = $this->addMapStructureContent(
