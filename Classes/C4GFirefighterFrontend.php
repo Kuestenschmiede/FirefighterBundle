@@ -13,12 +13,12 @@
 
 namespace con4gis\FirefighterBundle\Classes;
 
-use con4gis\CoreBundle\Resources\contao\models\C4gSettingsModel;
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationCategoriesModel;
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationsModel;
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationTypesModel;
 use con4gis\ProjectsBundle\Classes\Actions\C4GBrickActionType;
 use con4gis\ProjectsBundle\Classes\Maps\C4GBrickMapFrontendParent;
+use Contao\Database;
 
 /**
  * Class C4GFirefighterFrontend
@@ -172,7 +172,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
             }
 
 
-            $settings = C4gSettingsModel::findAll();
+            $settings = Database::getInstance()->execute("SELECT * FROM tl_c4g_settings LIMIT 1")->fetchAllAssoc();
             $pageId = 0;
             if ($settings) {
                 $settings = $settings[0];
