@@ -59,8 +59,7 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $this->listParams->setRenderMode(C4GBrickRenderMode::LISTBASED);
         $this->listParams->setCaptionField('caption');
         $this->listParams->setRowCount($this->c4g_row_count);
-
-        $this->listParams->setRedirectTo($this->settings->redirect_to_operations);
+        $this->listParams->setRedirectTo($this->settings['redirect_to_operations']);
     }
 
     /**

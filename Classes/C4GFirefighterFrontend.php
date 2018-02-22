@@ -176,7 +176,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
             $pageId = 0;
             if ($settings) {
                 $settings = $settings[0];
-                $pageId   = $settings->redirect_to_operations;
+                $pageId   = $settings['redirect_to_operations'];
             }
 
             $popupInfo =
