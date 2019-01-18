@@ -13,9 +13,9 @@
     }
   ],
   "require": {
-    "con4gis/core": "^2.3",
-    "con4gis/projects": "^0.9",
-    "con4gis/maps": "^4.3"
+    "con4gis/core": "^3.1",
+    "con4gis/projects": "^1.2",
+    "con4gis/maps": "^5.1"
   },
   "conflict": {
     "contao/core": "*",
