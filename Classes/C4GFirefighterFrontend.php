@@ -7,7 +7,7 @@
  * @package   con4gis_mapcil
  * @author    Matthias Eilers
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2011 - 2018
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2019
  * @link      https://www.kuestenschmiede.de
  */
 
@@ -19,6 +19,8 @@ use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationTyp
 use con4gis\ProjectsBundle\Classes\Actions\C4GBrickActionType;
 use con4gis\ProjectsBundle\Classes\Maps\C4GBrickMapFrontendParent;
 use Contao\Database;
+use con4gis\MapsBundle\Classes\Events\LoadLayersEvent;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Class C4GFirefighterFrontend
@@ -31,16 +33,15 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
         C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP
     );
 
-    /**
-     * @param $level
-     * @param $child
-     * @return array|void
-     */
-    public function addLocations($level, $child)
-    {
+    public function onAddLocations(
+        LoadLayersEvent $event,
+        $eventName,
+        EventDispatcherInterface $eventDispatcher
+    ) {
+        $child = $event->getLayerData();
         if (in_array($child['type'], $this->arrAllowedLocationTypes)) {
             $arrData = C4GFirefighterFrontend::addMapStructureElement(
-                $level,
+                $child['pid'],
                 $child['id'],
                 $child['id'],
                 'none',
@@ -63,12 +64,15 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
             }
 
             if (sizeof($arrChildData) == 0 && $child['raw']->tDontShowIfEmpty) {
-                return $arrData;
+                $returnData = $arrData;
             } else {
-                return C4GFirefighterFrontend::addMapStructureChilds($arrData, $arrChildData, true);
+                $returnData = C4GFirefighterFrontend::addMapStructureChilds($arrData, $arrChildData, true);
             }
+
+            $returnData['content'] = [];
+            $event->setLayerData($returnData);
         }
-        return;
+
     }
 
     /**

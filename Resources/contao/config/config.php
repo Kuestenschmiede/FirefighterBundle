@@ -7,7 +7,7 @@
  * @package   con4gis-Firefighter (FirefighterBundle)
  * @author    con4gis contributors
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2011 - 2018 - 2018
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2019
  * @link      https://www.kuestenschmiede.de
  */
 
@@ -84,6 +84,3 @@ $GLOBALS['TL_MODELS']['tl_c4g_firefighter_units'] = 'con4gis\FirefighterBundle\R
 
 /** Kartenstrukturelemente */
 $GLOBALS['c4g_locationtypes'][] = C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP;
-
-$GLOBALS['TL_HOOKS']['c4gAddLocationsParent']['operationMap'] = array('con4gis\FirefighterBundle\Classes\C4GFirefighterFrontend','addLocations');
-

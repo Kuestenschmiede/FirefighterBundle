@@ -7,7 +7,7 @@
  * @package   con4gis_mapcil
  * @author    Matthias Eilers
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2011 - 2018
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2019
  * @link      https://www.kuestenschmiede.de
  */
 
