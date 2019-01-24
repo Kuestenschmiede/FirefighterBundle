@@ -134,10 +134,11 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
         $captionField->setTableColumn(true);
         $fieldList[] = $captionField;
 
-        $descriptionField = new C4GCKEditorField();
+        $descriptionField = new C4GTextField();
         $descriptionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description']);
 //        $descriptionField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_description']);
         $descriptionField->setFieldName('description');
+        $descriptionField->setSimpleTextWithoutEditing(true);
         $fieldList[] = $descriptionField;
 
 //        $dateHeadlineField = new C4GHeadlineField();
