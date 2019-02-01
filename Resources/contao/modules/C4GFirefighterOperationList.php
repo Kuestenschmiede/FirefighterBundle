@@ -87,7 +87,7 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $startDateField->setTableColumn(true);
         $startDateField->setSortColumn(true);
         $startDateField->setSortType('de_date');
-        $startDateField->setSortSequence('desc');
+        $startDateField->setSortSequence(SORT_DESC);
         $startDateField->setShowIfEmpty(false);
         $fieldList[] = $startDateField;
 
