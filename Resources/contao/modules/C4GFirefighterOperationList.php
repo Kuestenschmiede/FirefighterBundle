@@ -55,6 +55,7 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
 
         $this->dialogParams->setTabContent(true);
         $this->dialogParams->setWithNextPrevButtons(false);
+        $this->dialogParams->setRedirectWithSaving(false);
         $this->listParams->setWithExportButtons(false);
         $this->listParams->setRenderMode(C4GBrickRenderMode::LISTBASED);
         $this->listParams->setCaptionField('caption');
