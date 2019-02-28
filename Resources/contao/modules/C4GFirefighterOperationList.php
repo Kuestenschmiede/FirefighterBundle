@@ -44,6 +44,20 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
     protected $viewType     = C4GBrickViewType::PUBLICVIEW;
     protected $withBackup   = false;
     protected $captionField = 'caption';
+    protected $loadClearBrowserUrlResources = true;
+    protected $jQueryAddCore = true;
+    protected $jQueryAddJquery = true;
+    protected $jQueryAddJqueryUI = true;
+    protected $jQueryUseTree = false;
+    protected $jQueryUseTable = false;
+    protected $jQueryUseHistory = false;
+    protected $jQueryUseTooltip = false;
+    protected $jQueryUseMaps = false;
+    protected $jQueryUseGoogleMaps = false;
+    protected $jQueryUseMapsEditor = false;
+    protected $jQueryUseWswgEditor = false;
+    protected $jQueryUseScrollPane = false;
+    protected $jQueryUsePopups = false;
 
     public function initBrickModule($id)
     {

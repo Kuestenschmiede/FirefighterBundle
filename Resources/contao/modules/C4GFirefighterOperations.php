@@ -43,6 +43,8 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
     protected $viewType     = C4GBrickViewType::PUBLICVIEW;
     protected $withBackup   = false;
     protected $captionField = 'caption';
+    protected $loadClearBrowserUrlResources = true;
+    protected $jQueryUseMaps = true;
 
     public function initBrickModule($id)
     {
@@ -82,7 +84,7 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
         $startDateField->setTableColumn(true);
         $startDateField->setSortColumn(true);
         $startDateField->setSortType('de_date');
-        $startDateField->setSortSequence(SORT_DESC);
+        $startDateField->setSortSequence('desc');
         $startDateField->setShowIfEmpty(false);
         $fieldList[] = $startDateField;
 
