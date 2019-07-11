@@ -109,8 +109,8 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
     'palettes' => array
     (
         '__selector__' => array('addTime'),
-        'default'      =>  '{info_legend}, operation_type, operation_category, caption, description;{date_legend},addTime,startDate,endDate;'.
-                           '{maps_legend},location,loc_geox,loc_geoy;{section_legend},vehicles,units;{media_legend},gallery,pressRelease1,pressRelease2,pressRelease3;{publish_legend},published;'
+        'default'      =>  '{info_legend}, operation_type, operation_category, caption, description, operation_leader;{date_legend},addTime,startDate,endDate;'.
+                           '{maps_legend},location,loc_geox,loc_geoy;{section_legend},numberStaff,vehicles,units;{media_legend},gallery,pressRelease1,pressRelease2,pressRelease3;{publish_legend},userId,published;'
     ),
 
     // Subpalettes
@@ -179,6 +179,18 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'eval'              => array('mandatory' => true, 'tl_class' => 'long', 'chosen' => true, 'includeBlankOption' => false),
             'sql'               => "int(10) unsigned NOT NULL",
             'relation'          => array('type' => 'hasOne', 'load' => 'lazy'),
+        ),
+
+        'operation_leader' => array
+        (
+            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_leader'],
+            'default'           => '',
+            'sorting'           => true,
+            'flag'              => 1,
+            'search'            => true,
+            'inputType'         => 'text',
+            'eval'              => array('mandatory' => false, 'maxlength' => 255),
+            'sql'               => "varchar(255) NOT NULL"
         ),
 
         'addTime' => array
@@ -298,6 +310,16 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'sql'                     => "blob NULL"
         ),
 
+        'numberStaff' => array
+        (
+            'label'            => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['numberStaff'],
+            'default'          => 0,
+            'exclude'          => true,
+            'inputType'        => 'text',
+            'eval'             => array('rgxp' => 'digit', 'tl_class'=>'w50'),
+            'sql'              => "int(5) unsigned NULL"
+        ),
+
         'gallery' => array
         (
             'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['gallery'],
@@ -347,6 +369,20 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'sql'               => "char(1) NOT NULL default ''"
         ),
 
+        'userId' => array
+        (
+            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['userId'],
+            'exclude'           => true,
+            'sorting'           => true,
+            'search'            => true,
+            'default'           => $this->User->id,
+            'flag'              => 1,
+            'inputType'         => 'select',
+            'foreignKey'        => 'tl_user.name',
+            'eval'              => array('mandatory' => true, 'tl_class' => 'w50'),
+            'sql'               => "int(10) unsigned NOT NULL",
+            'relation'          => array('type' => 'hasOne', 'load' => 'lazy')
+        )
     )
 
 );

@@ -15,6 +15,7 @@ $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['caption'] = array("Einsatz
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['description'] = array("Einsatzbericht","Hier kannst Du den Einsatz beschreiben.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_type'] = array("Einsatzart","Wähle die Einsatzart aus.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_category'] = array("Einsatzkategorie","Wähle die Einsatzkategorie aus.");
+$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_leader'] = array("EinsatzleiterIn","Wer leitete den Einsatz?");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['c4g_loc_lon'] = array("Longitude","Geben Sie hier die X-Koordinate (Breitengrad, WGS-84) der Lokation ein.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['c4g_loc_lat'] = array("Latitude","Geben Sie hier die Y-Koordinate (Längengrad, WGS-84) der Lokation ein.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['gallery'] = array("Bilddateien","Möchtest Du dem Einsatz bilder zuordnen?");
@@ -24,12 +25,14 @@ $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['endTime']   = array("Einsa
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['startDate'] = array("Einsatzdatum","Bitte geben Sie das Einsatzdatum gemäß des globalen Datumsformats ein.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['endDate']   = array("Enddatum", "Lassen Sie das Feld leer, um ein eintägigen Einsatz zu erstellen.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['location']  = array("Einsatzort","Hier können Sie den Einsatzort eingeben.");
+$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['numberStaff']  = array("Anzahl Einsatzkräfte", "Wie viele Einsatzkräfte waren beteiligt?");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['vehicles']  = array("Alarmierte Fahrzeuge", "Welche Fahrzeuge wurden alarmiert?");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['units']     = array("Alarmierte Einheiten", "Welche Einheiten wurden alarmiert?");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['pressRelease1'] = array("Pressebericht1", "Hier kannst Du den ersten Link zu einem Pressebericht einpflegen.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['pressRelease2'] = array("Pressebericht2", "Hier kannst Du den zweiten Link zu einem Pressebericht einpflegen.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['pressRelease3'] = array("Pressebericht3", "Hier kannst Du den dritten Link zu einem Pressebericht einpflegen.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['published'] = array("Veröffentlichen", "Möchtest Du den Einsatz veröffentlichen?");
+$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['userId'] = array("Author", "Wer hat den Einsatz veröffentlicht?");
 
 /** LEGENDS **/
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['info_legend'] = "Allgemeine Informationen zum Einsatz";
