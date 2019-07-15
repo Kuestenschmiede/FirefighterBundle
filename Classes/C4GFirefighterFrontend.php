@@ -46,7 +46,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                 $child['id'],
                 'none',
                 $child['name'],
-                $child['layername'],
+                $child['name'],
                 true,
                 $child['hide']);
 
@@ -127,7 +127,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                     $category = false;
                 }
                 foreach ($operations as $operationID=>$operation) {
-                    $operationLayerElement = C4GFirefighterFrontend::getData($child, $operation, $type, $category);
+                    $operationLayerElement = C4GFirefighterFrontend::getOperationLayerData($child, $operation, $type, $category);
                     if (!$category) {
                         $typeLayerElement = C4GFirefighterFrontend::addMapStructureChild($typeLayerElement, $operationLayerElement);
                     } else {
@@ -153,7 +153,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
      * @param $category
      * @return array|null
      */
-    protected function getData($child, $element, $type, $category)
+    protected function getOperationLayerData($child, $element, $type, $category)
     {
         if ($element !== null) {
             if (!$element->loc_geox || !$element->loc_geoy) {
