@@ -128,9 +128,16 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                 }
                 foreach ($operations as $operationID=>$operation) {
                     $operationLayerElement = C4GFirefighterFrontend::getData($child, $operation, $type, $category);
-                    $categoryLayerElement = C4GFirefighterFrontend::addMapStructureChild($categoryLayerElement, $operationLayerElement);
+                    if (!$category) {
+                        $typeLayerElement = C4GFirefighterFrontend::addMapStructureChild($typeLayerElement, $operationLayerElement);
+                    } else {
+                        $categoryLayerElement = C4GFirefighterFrontend::addMapStructureChild($categoryLayerElement, $operationLayerElement);
+                    }
                 }
-                $typeLayerElement = C4GFirefighterFrontend::addMapStructureChild($typeLayerElement, $categoryLayerElement);
+
+                if ($category) {
+                    $typeLayerElement = C4GFirefighterFrontend::addMapStructureChild($typeLayerElement, $categoryLayerElement);
+                }
             }
             $layerElements[] = $typeLayerElement;
         }
@@ -211,7 +218,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                 'none',//C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP,
                 $caption,
                 $caption,
-                false,
+                true,
                 $child['hide'],
                 $layerContent,
                 false);
