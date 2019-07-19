@@ -96,7 +96,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicles'] = array
     //Palettes
     'palettes' => array
     (
-        'default'   =>  '{custom_legend},caption,vehicle_type_id;',
+        'default'   =>  '{custom_legend},caption,vehicle_type_id,vehicle_page_link;',
     ),
 
     //Fields
@@ -134,6 +134,16 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicles'] = array
             'sql'               => "int(10) unsigned NOT NULL",
             'relation'          => array('type' => 'hasOne', 'load' => 'lazy'),
         ),
+
+        'vehicle_page_link' => array
+        (
+            'label'                   => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['vehicle_page_link'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'fieldType'=>'radio', 'feEditable' => true, 'feViewable' => true, 'tl_class'=>'long'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        )
     )
 
 );

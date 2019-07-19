@@ -13,6 +13,8 @@
 /** FIELDS **/
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['caption'] = array("Bezeichnung","Eindeutige Fahrzeugbezeichnung.");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['vehicle_type_id'] = array("Fahrzeugtyp", "Wähle den Fahrzeugtyp.");
+$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['vehicle_page_link'] = array("Fahrzeugseite", "Link zur Detailseite.");
+
 
 /** LEGENDS **/
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['custom_legend'] = "Allgemeine Einstellungen zum Fahrzeug";
