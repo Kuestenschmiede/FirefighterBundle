@@ -293,9 +293,9 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['vehicles'],
             'exclude'                 => true,
             'inputType'               => 'select',
-//            'options_callback'        => array('tl_c4g_map_profiles','getAllBaseLayers'),
             'foreignKey'              => 'tl_c4g_firefighter_vehicles.caption',
-            'eval'                    => array('chosen'=>true, 'mandatory'=>false, 'multiple'=>true),
+            'relation'                => array('type'=>'belongsToMany', 'load'=>'lazy'),
+            'eval'                    => array('chosen'=>true, 'mandatory'=>false, 'multiple'=>true, 'tl_class'=>'long clr'),
             'sql'                     => "blob NULL"
         ),
 
@@ -304,9 +304,9 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['units'],
             'exclude'                 => true,
             'inputType'               => 'select',
-//            'options_callback'        => array('tl_c4g_map_profiles','getAllBaseLayers'),
             'foreignKey'              => 'tl_c4g_firefighter_units.caption',
-            'eval'                    => array('chosen'=>true, 'mandatory'=>false, 'multiple'=>true),
+            'relation'                => array('type'=>'belongsToMany', 'load'=>'lazy'),
+            'eval'                    => array('chosen'=>true, 'mandatory'=>false, 'multiple'=>true, 'tl_class'=>'long clr'),
             'sql'                     => "blob NULL"
         ),
 
@@ -316,7 +316,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'default'          => 0,
             'exclude'          => true,
             'inputType'        => 'text',
-            'eval'             => array('rgxp' => 'digit', 'tl_class'=>'w50'),
+            'eval'             => array('rgxp' => 'digit', 'tl_class'=>'w50 clr'),
             'sql'              => "int(5) unsigned NULL"
         ),
 
