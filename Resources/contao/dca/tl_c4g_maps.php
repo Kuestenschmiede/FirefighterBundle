@@ -18,7 +18,8 @@ use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
  * Table tl_c4g_maps
  */
 
-$GLOBALS['TL_DCA']['tl_c4g_maps']['palettes'][C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP] = '{general_legend},name,profile,profile_mobile,published;{map_legend},is_map;{location_legend},location_type,tDontShowIfEmpty,locstyle,data_layername,data_hidelayer,popup_info,routing_to,loc_linkurl,loc_minzoom,loc_maxzoom,hide_when_in_tab;{protection_legend:hide},protect_element;';
+$GLOBALS['TL_DCA']['tl_c4g_maps']['palettes'][C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP] =
+    '{general_legend},name,profile,profile_mobile,published;{map_legend},is_map;{location_legend},location_type,tDontShowIfEmpty,data_layername,data_hidelayer,routing_to,loc_minzoom,loc_maxzoom,cluster_locations,hide_when_in_tab;{protection_legend:hide},protect_element;';
 
 $GLOBALS['TL_DCA']['tl_c4g_maps']['subpalettes']['useDatabaseStatus'] = 'databaseStatus';
 
