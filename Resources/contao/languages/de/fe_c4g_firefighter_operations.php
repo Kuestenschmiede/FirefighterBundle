@@ -19,7 +19,7 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['infoHeadline'] = 'Einsatzb
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['dateHeadline'] = 'Zeitangaben';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['mapsHeadline'] = 'Ortsangaben';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['sectionHeadline'] = 'Fahrzeuge / Einheiten';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['mediaHeadline'] = 'Bilder & Presse';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['mediaHeadline'] = 'Bilder und Presse';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['publishHeadline'] = 'Freigabeeinstellungen';
 
 /** Fieldnames */

@@ -375,11 +375,11 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'exclude'           => true,
             'sorting'           => true,
             'search'            => true,
-            'default'           => $this->User->id,
+            'default'           => 0,
             'flag'              => 1,
             'inputType'         => 'select',
             'foreignKey'        => 'tl_user.name',
-            'eval'              => array('mandatory' => true, 'tl_class' => 'w50'),
+            'eval'              => array('mandatory' => true, 'includeBlankOption' => true, 'tl_class' => 'w50'),
             'sql'               => "int(10) unsigned NOT NULL",
             'relation'          => array('type' => 'hasOne', 'load' => 'lazy')
         )
@@ -401,7 +401,6 @@ class tl_c4g_firefighter_operations extends Backend
         parent::__construct();
         $this->import('BackendUser', 'User');
     }
-
 
     public function updateDCA (DataContainer $dc)
     {
