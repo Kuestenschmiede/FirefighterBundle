@@ -26,6 +26,7 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['publishHeadline'] = 'Freig
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationType'] = 'Einsatzart';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationCategory'] = 'Einsatzkategorie';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption'] = 'Einsatzbezeichnung';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operation_leader'] = 'Einsatzleiter';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description'] = 'Einsatzbericht';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startDate'] = 'Einsatzdatum';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startTime'] = 'Alarmierung';

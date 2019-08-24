@@ -76,6 +76,12 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
         $infoHeadlineField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['infoHeadline']);
         $fieldList[] = $infoHeadlineField;
 
+        $captionField = new C4GTextField();
+        $captionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption']);
+//        $captionField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_caption']);
+        $captionField->setFieldName('caption');
+        $captionField->setTableColumn(true);
+        $fieldList[] = $captionField;
 
         $startDateField = new C4GDateField();
         $startDateField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startDate']);
@@ -129,12 +135,12 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
         $operationCategoryField->setShowIfEmpty(false);
         $fieldList[] = $operationCategoryField;
 
-        $captionField = new C4GTextField();
-        $captionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption']);
-//        $captionField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_caption']);
-        $captionField->setFieldName('caption');
-        $captionField->setTableColumn(true);
-        $fieldList[] = $captionField;
+        $leaderField = new C4GTextField();
+        $leaderField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operation_leader']);
+//        $leaderField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_caption']);
+        $leaderField->setFieldName('operation_leader');
+        $leaderField->setTableColumn(false);
+        $fieldList[] = $leaderField;
 
         $descriptionField = new C4GTextField();
         $descriptionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description']);
