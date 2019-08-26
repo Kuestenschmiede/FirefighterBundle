@@ -23,16 +23,16 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['mediaHeadline'] = 'Bilder 
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['publishHeadline'] = 'Freigabeeinstellungen';
 
 /** Fieldnames */
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationType'] = 'Einsatzart';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationType'] = 'Art';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationCategory'] = 'Einsatzkategorie';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption'] = 'Einsatzbezeichnung';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption'] = 'Bezeichnung';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operation_leader'] = 'Einsatzleiter';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description'] = 'Einsatzbericht';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startDate'] = 'Einsatzdatum';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startTime'] = 'Alarmierung';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startDate'] = 'Datum';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startTime'] = 'Alarm';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['endDate'] = 'Enddatum';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['endTime'] = 'Einsatzende';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['location'] = 'Einsatzort';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['location'] = 'Ort';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['geopicker'] = 'Ungefähre Position';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['vehicles'] = 'Alarmierte Fahrzeuge';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['units'] = 'Alarmierte Einheiten';
