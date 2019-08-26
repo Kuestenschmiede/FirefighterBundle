@@ -30,6 +30,7 @@ use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTextField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTimeField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GUrlField;
 use con4gis\ProjectsBundle\Classes\Framework\C4GBrickModuleParent;
+use con4gis\ProjectsBundle\Classes\Filter\C4GDateTimeListFilter;
 use con4gis\ProjectsBundle\Classes\Lists\C4GBrickRenderMode;
 use con4gis\ProjectsBundle\Classes\Views\C4GBrickViewType;
 
@@ -58,6 +59,15 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
         $this->dialogParams->setTabContent(true);
         $this->dialogParams->setWithNextPrevButtons(false);
         $this->listParams->setWithExportButtons(false);
+
+        $filter = new C4GDateTimeListFilter($this->brickKey);
+        $filter->setFieldName('startDate')
+            ->setDefaultFilter(
+                mktime(0, 0, 0,1, 1),
+                mktime(23, 59, 59, date("n"), date("d"))
+            )
+            ->setButtonText('Zeitraum ändern'); //ToDo Language
+        $this->listParams->setFilterObject($filter);
     }
 
     /**
