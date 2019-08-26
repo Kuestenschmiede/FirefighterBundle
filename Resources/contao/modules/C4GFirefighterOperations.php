@@ -43,6 +43,7 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
     protected $viewType     = C4GBrickViewType::PUBLICVIEW;
     protected $withBackup   = false;
     protected $captionField = 'caption';
+    protected $brickStyle   = 'bundles/con4gisfirefighter/frontend.css';
     protected $loadClearBrowserUrlResources = true;
     protected $jQueryUseMaps = true;
 
