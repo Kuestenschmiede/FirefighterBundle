@@ -180,12 +180,13 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
 
         $geopickerField = new C4GGeopickerField();
         $geopickerField->setFieldName('geopicker');
-        $geopickerField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['geopicker']);
+        $geopickerField->setTitle("");//$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['geopicker']);
 //        $geopickerField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_geopicker']);
         $geopickerField->setSortColumn(false);
         $geopickerField->setTableColumn(false);
         $geopickerField->setMandatory(false);
         $geopickerField->setEditable(false);
+        $geopickerField->setWithoutAddressRow(true);
         $fieldList[] = $geopickerField;
 
         $sectionHeadlineField = new C4GHeadlineField();
