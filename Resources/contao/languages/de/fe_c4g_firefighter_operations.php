@@ -42,6 +42,10 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease2'] = 'Presseb
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease3'] = 'Pressebericht 3';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['published'] = 'Veröffentlichen';
 
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationDate'] = 'Einsatzdatum';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['locationDescription'] = 'Ortsbeschreibung';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['readMore'] = 'Weiterlesen';
+
 /** Descriptions */
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_operationType'] = 'Die Hauptkategorie des Einsatzes.';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_operationCategory'] = 'Die Unterkategorie des Einsatzes.';
@@ -61,3 +65,5 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease2'] = 'Li
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease3'] = 'Link zum Pressebericht';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_published'] = 'Ist bzw. soll der Einsatz veröffentlicht werden?';
 
+/** BUTTONS **/
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['button_period'] = "Zeitraum ändern";

@@ -173,9 +173,10 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                 }
             }
 
-            //ToDo Language
+            $language = $GLOBALS['TL_LANGUAGE'];
+            \System::loadLanguageFile('fe_c4g_firefighter_operations',$language);
 
-            $description = C4GFirefighterFrontend::addPopupDescriptionElement('Einsatzbericht', $element->description);
+            $description = C4GFirefighterFrontend::addPopupDescriptionElement($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['infoHeadline'], $element->description);
 
             $subtitle = $typeName;
             if ($categoryName) {
@@ -194,11 +195,11 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                 C4GFirefighterFrontend::addPopupKeyElement($element->id) .
                 C4GFirefighterFrontend::addPopupHeader($caption, $subtitle) .
                 "<ul>" .
-                C4GFirefighterFrontend::addPopupListElement('Einsatzdatum', date('d.m.Y', $element->startDate)) .
-                C4GFirefighterFrontend::addPopupListElement('Ortsbeschreibung', $element->location) .
+                C4GFirefighterFrontend::addPopupListElement($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationDate'], date('d.m.Y', $element->startDate)) .
+                C4GFirefighterFrontend::addPopupListElement($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['locationDescription'], $element->location) .
                 "</ul>" .
                 $description .
-                C4GFirefighterFrontend::addRedirectButton($pageId, C4GBrickActionType::IDENTIFIER_DIALOG . ':' . $element->id, 'Weiterlesen', false, 0, 0, C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_OPERATIONS);
+                C4GFirefighterFrontend::addRedirectButton($pageId, C4GBrickActionType::IDENTIFIER_DIALOG . ':' . $element->id, $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['readMore'], false, 0, 0, C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_OPERATIONS);
 
 
             $layerContent = $this->addMapStructureContent(
@@ -215,7 +216,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                 $category->id,
                 $type->id,
                 30,
-                'none',//C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP,
+                'none',
                 $caption,
                 $caption,
                 true,
