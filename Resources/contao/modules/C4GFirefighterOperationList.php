@@ -97,7 +97,6 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
 
         $startDateField = new C4GDateField();
         $startDateField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startDate']);
-//        $startDateField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_startDate']);
         $startDateField->setFieldName('startDate');
         $startDateField->setTableColumn(true);
         $startDateField->setSortColumn(true);
@@ -108,7 +107,6 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
 
         $startTimeField = new C4GTimeField();
         $startTimeField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startTime']);
-//        $startTimeField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_startTime']);
         $startTimeField->setFieldName('startTime');
         $startTimeField->setTableColumn(true);
         $startTimeField->setShowIfEmpty(false);
@@ -116,7 +114,6 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
 
         $endDateField = new C4GDateField();
         $endDateField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['endDate']);
-//        $endDateField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_endDate']);
         $endDateField->setFieldName('endDate');
         $endDateField->setSortType('de_date');
         $endDateField->setSortSequence('desc');
@@ -125,13 +122,11 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
 
         $endTimeField = new C4GTimeField();
         $endTimeField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['endTime']);
-//        $endTimeField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_endTime']);
         $endTimeField->setFieldName('endTime');
         $fieldList[] = $endTimeField;
 
         $operationTypeField = new C4GSelectField();
         $operationTypeField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationType']);
-//        $operationTypeField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_operationType']);
         $operationTypeField->setFieldName('operation_type');
         $operationTypeField->setTableColumn(true);
         $operationTypeField->setOptionsByModel('\con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationTypesModel','operation_type');
@@ -140,7 +135,6 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
 
         $operationCategoryField = new C4GSelectField();
         $operationCategoryField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationCategory']);
-//        $operationCategoryField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_operationCategory']);
         $operationCategoryField->setFieldName('operation_category');
         $operationCategoryField->setTableColumn(false);
         $operationCategoryField->setOptionsByModel('\con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationCategoriesModel', 'operation_category');
@@ -149,20 +143,14 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
 
         $captionField = new C4GTextField();
         $captionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption']);
-//        $captionField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_caption']);
         $captionField->setFieldName('caption');
         $captionField->setTableColumn(true);
         $fieldList[] = $captionField;
 
         $descriptionField = new C4GCKEditorField();
         $descriptionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description']);
-//        $descriptionField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_description']);
         $descriptionField->setFieldName('description');
         $fieldList[] = $descriptionField;
-
-//        $dateHeadlineField = new C4GHeadlineField();
-//        $dateHeadlineField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['dateHeadline']);
-//        $fieldList[] = $dateHeadlineField;
 
         $mapsHeadlineField = new C4GHeadlineField();
         $mapsHeadlineField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['mapsHeadline']);
@@ -171,7 +159,6 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $locationField = new C4GTextField();
         $locationField->setFieldName('location');
         $locationField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['location']);
-//        $locationField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_location']);
         $locationField->setColumnWidth(20);
         $locationField->setSortColumn(false);
         $locationField->setTableColumn(false);
@@ -181,7 +168,6 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $geopickerField = new C4GGeopickerField();
         $geopickerField->setFieldName('geopicker');
         $geopickerField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['geopicker']);
-//        $geopickerField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_geopicker']);
         $geopickerField->setSortColumn(false);
         $geopickerField->setTableColumn(false);
         $geopickerField->setMandatory(false);
@@ -195,7 +181,6 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $vehiclesField = new C4GMultiCheckboxField();
         $vehiclesField->setFieldName('vehicles');
         $vehiclesField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['vehicles']);
-//        $vehiclesField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_vehicles']);
         $vehiclesField->setSortColumn(false);
         $vehiclesField->setTableColumn(false);
         $vehiclesField->setColumnWidth(20);
@@ -209,7 +194,6 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $unitsField = new C4GMultiCheckboxField();
         $unitsField->setFieldName('units');
         $unitsField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['units']);
-//        $unitsField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_units']);
         $unitsField->setSortColumn(false);
         $unitsField->setTableColumn(false);
         $unitsField->setColumnWidth(20);
@@ -227,40 +211,25 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $galleryField = new C4GGalleryField();
         $galleryField->setFieldName('gallery');
         $galleryField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['gallery']);
-//        $galleryField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_gallery']);
         $fieldList[] = $galleryField;
 
         $pressRelease1Field = new C4GUrlField();
         $pressRelease1Field->setFieldName('pressRelease1');
         $pressRelease1Field->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease1']);
-//        $pressRelease1Field->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease1']);
         $pressRelease1Field->setShowIfEmpty(false);
         $fieldList[] = $pressRelease1Field;
 
         $pressRelease2Field = new C4GUrlField();
         $pressRelease2Field->setFieldName('pressRelease2');
         $pressRelease2Field->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease2']);
-//        $pressRelease2Field->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease2']);
         $pressRelease2Field->setShowIfEmpty(false);
         $fieldList[] = $pressRelease2Field;
 
         $pressRelease3Field = new C4GUrlField();
         $pressRelease3Field->setFieldName('pressRelease3');
         $pressRelease3Field->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease3']);
-//        $pressRelease3Field->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease3']);
         $pressRelease3Field->setShowIfEmpty(false);
         $fieldList[] = $pressRelease3Field;
-
-//        $publishHeadlineField = new C4GHeadlineField();
-//        $publishHeadlineField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['publishHeadline']);
-//        $fieldList[] = $publishHeadlineField;
-//
-//        $publishedField = new C4GCheckboxField();
-//        $publishedField->setFieldName('published');
-//        $publishedField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['published']);
-//        $publishedField->setDescription($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_published']);
-//        $publishedField->setTableColumn(true);
-//        $fieldList[] = $publishedField;
 
         $this->fieldList = $fieldList;
     }
