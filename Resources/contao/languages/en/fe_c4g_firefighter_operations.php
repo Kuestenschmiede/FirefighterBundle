@@ -64,3 +64,6 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease1'] = 'Li
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease2'] = 'Link to press release';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease3'] = 'Link to press release';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_published'] = 'Is or should the operation be published ?';
+
+/** BUTTONS **/
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['button_period'] = "Change period";

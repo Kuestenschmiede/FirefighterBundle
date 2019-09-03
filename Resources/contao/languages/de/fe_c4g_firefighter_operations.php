@@ -65,3 +65,5 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease2'] = 'Li
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_pressRelease3'] = 'Link zum Pressebericht';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_published'] = 'Ist bzw. soll der Einsatz veröffentlicht werden?';
 
+/** BUTTONS **/
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['button_period'] = "Zeitraum ändern";

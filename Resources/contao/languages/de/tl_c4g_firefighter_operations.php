@@ -48,6 +48,3 @@ $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['edit'] = array("Einsatz be
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['copy'] = array("Einsatz kopieren","Kopieren des Einsatzes ID %s");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['delete'] = array("Einsatz löschen","Löschen des Einsatzes ID %s");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['show'] = array("Einsatz anzeigen","Anzeigen des Einsatzes ID %s");
-
-/** BUTTONS **/
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['button_period'] = "Zeitraum ändern";
