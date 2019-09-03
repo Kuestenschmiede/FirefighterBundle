@@ -48,3 +48,6 @@ $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['edit'] = array("edit opera
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['copy'] = array("copy operation","copy operation ID %s");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['delete'] = array("delete operation","delete operation ID %s");
 $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['show'] = array("show operation","show operation ID %s");
+
+/** BUTTONS **/
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['button_period'] = "Change period";

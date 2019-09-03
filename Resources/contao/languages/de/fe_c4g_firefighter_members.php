@@ -10,6 +10,10 @@
  * @link      https://www.kuestenschmiede.de
  */
 
+/** SETTINGS */
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['brickCaption'] = 'Mitglied';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['brickCaptionPlural'] = 'Mitglieder';
+
 /** FIELDS */
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['firstname'] = 'Vorname';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['lastname']  = 'Name';

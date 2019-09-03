@@ -11,11 +11,11 @@
  */
 
 /** SETTINGS */
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['brickCaption'] = 'fire-fighting operations';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['brickCaptionPlural'] = 'fire-fighting operations';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['brickCaption'] = 'operation';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['brickCaptionPlural'] = 'operations';
 
 /** HEADLINES */
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['infoHeadline'] = 'fire operation report';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['infoHeadline'] = 'operation report';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['dateHeadline'] = 'times';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['mapsHeadline'] = 'location information';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['sectionHeadline'] = 'Vehicles / Units';
@@ -24,14 +24,14 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['publishHeadline'] = 'relea
 
 /** Fieldnames */
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationType'] = 'type';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationCategory'] = 'firefighting categories';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationCategory'] = 'operation category';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption'] = 'designation';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operation_leader'] = 'fire chief';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description'] = 'fire operation report';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description'] = 'description';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startDate'] = 'date';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startTime'] = 'alarm';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['endDate'] = 'end date';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['endTime'] = 'fire-fighting operation end';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['endTime'] = 'operation end';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['location'] = 'location';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['geopicker'] = 'Approximate position';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['vehicles'] = 'Alarmed vehicles';
@@ -41,6 +41,10 @@ $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease1'] = 'press r
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease2'] = 'press report 2';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['pressRelease3'] = 'press report 3';
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['published'] = 'publish';
+
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationDate'] = 'operation date';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['locationDescription'] = 'location';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['readMore'] = 'Read more';
 
 /** Descriptions */
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['desc_operationType'] = 'The main category of fire-fighting operation.';

@@ -66,7 +66,7 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
                 mktime(0, 0, 0,1, 1),
                 mktime(23, 59, 59, date("n"), date("d"))
             )
-            ->setButtonText('Zeitraum ändern'); //ToDo Language
+            ->setButtonText($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['button_period']);
         $this->listParams->setFilterObject($filter);
     }
 
