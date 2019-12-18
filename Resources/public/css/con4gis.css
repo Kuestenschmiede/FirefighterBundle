@@ -1,0 +1,17 @@
+/*
+ * This file is part of con4gis,
+ * the gis-kit for Contao CMS.
+ *
+ * @package   	con4gis
+ * @version        6
+ * @author  	    con4gis contributors (see "authors.txt")
+ * @license 	    LGPL-3.0-or-later
+ * @copyright 	Küstenschmiede GmbH Software & Design
+ * @link              https://www.con4gis.org
+ *
+ */
+
+
+li .c4g_firefighter_operation_types, li .c4g_firefighter_operation_categories, li .c4g_firefighter_operations, li .c4g_firefighter_vehicle_types, li .c4g_firefighter_vehicles, li .c4g_firefighter_unit_types, li .c4g_firefighter_units {
+  display: none !important;
+}

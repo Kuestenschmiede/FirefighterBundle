@@ -33,44 +33,40 @@ array_insert( $GLOBALS['FE_MOD']['con4gis'], $GLOBALS['con4gis']['maps']['instal
 /**
  * Backend Modules
  */
-array_insert($GLOBALS['BE_MOD'], array_search('content', array_keys($GLOBALS['BE_MOD'])) + 3, array
-(
-    'C4GFirefighter' => array
-    (
-        'C4gFirefighterOperationTypes' => array
+$GLOBALS['BE_MOD']['con4gis'] = array_merge($GLOBALS['BE_MOD']['con4gis'], array(
+        'c4g_firefighter_operation_types' => array
         (
             'tables'    => array('tl_c4g_firefighter_operation_types')
         ),
-        'C4gFirefighterOperationCategories' => array
+        'c4g_firefighter_operation_categories' => array
         (
             'tables'    => array('tl_c4g_firefighter_operation_categories')
         ),
-        'C4gFirefighterVehicleTypes' => array
+        'c4g_firefighter_vehicle_types' => array
         (
             'tables'    => array('tl_c4g_firefighter_vehicle_types')
         ),
-        'C4gFirefighterVehicles' => array
+        'c4g_firefighter_vehicles' => array
         (
             'tables'    => array('tl_c4g_firefighter_vehicles')
         ),
-        'C4gFirefighterUnitTypes' => array
+        'c4g_firefighter_unit_types' => array
         (
             'tables'    => array('tl_c4g_firefighter_unit_types')
         ),
-        'C4gFirefighterUnits' => array
+        'c4g_firefighter_units' => array
         (
             'tables'    => array('tl_c4g_firefighter_units')
         ),
-        'C4gFirefighterOperations' => array
+        'c4g_firefighter_operations' => array
         (
             'tables'    => array('tl_c4g_firefighter_operations')
         )
     )
-));
+);
 
-/** Backend Icons */
-if ('BE' === TL_MODE) {
-   $GLOBALS['TL_CSS'][] = 'bundles\con4gisfirefighter\backend_svg.css';
+if (TL_MODE == "BE") {
+    $GLOBALS['TL_CSS'][] = '/bundles/con4gisfirefighter/css/con4gis.css';
 }
 
 /** Models */
