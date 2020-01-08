@@ -11,7 +11,7 @@
  * @link      https://www.kuestenschmiede.de
  */
 
-$GLOBALS['TL_LANG']['MOD']['c4_firefighter_operation_types'] = array('Einsatzarten', 'Bestimmt Eure Einsatzarten und -symbole.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_types'] = array('Einsatzarten', 'Bestimmt Eure Einsatzarten und -symbole.');
 $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_categories'] = array('Einsatzkategorien', 'Bestimmt Eure Einsatzkategorien und -symbole.');
 $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operations']     = array('Einsätze', 'Hier könnt Ihr Eure Einsätze verwalten.');
 $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_vehicle_types']   = array('Fahrzeugtypen', 'Hier könnt Ihr Eure Fahrzeugtypen verwalten.');
