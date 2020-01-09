@@ -9,7 +9,6 @@
  * @copyright Küstenschmiede GmbH Software & Design 2011 - 2019
  * @link      https://www.kuestenschmiede.de
  */
-
 namespace con4gis\FirefighterBundle\Classes;
 
 class C4GFirefighterBrickTypes

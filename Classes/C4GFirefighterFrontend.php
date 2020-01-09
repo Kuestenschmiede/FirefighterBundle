@@ -10,7 +10,6 @@
  * @copyright Küstenschmiede GmbH Software & Design 2011 - 2019
  * @link      https://www.kuestenschmiede.de
  */
-
 namespace con4gis\FirefighterBundle\Classes;
 
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationCategoriesModel;
@@ -28,10 +27,9 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  */
 class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
 {
-    private $arrAllowedLocationTypes = array
-    (
-        C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP
-    );
+    private $arrAllowedLocationTypes = [
+        C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP,
+    ];
 
     public function onAddLocations(
         LoadLayersEvent $event,
@@ -58,6 +56,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
             switch ($child['type']) {
                 case C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP:
                     $arrChildData = C4GFirefighterFrontend::getPoiData($child);
+
                     break;
                 default:
                     break;
@@ -72,7 +71,6 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
             $returnData['content'] = [];
             $event->setLayerData($returnData);
         }
-
     }
 
     /**
@@ -81,7 +79,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
      */
     protected function getPoiData($child)
     {
-        $arrLayers = array();
+        $arrLayers = [];
 
         $operations = C4gFirefighterOperationsModel::findBy('published', '1');
         foreach ($operations as $operation) {
@@ -95,8 +93,8 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
             $arrLayers[$typeId][$categoryId][$operation->id] = $operation;
         }
 
-        $layerElements = array();
-        foreach ($arrLayers as $typeId=>$categories) {
+        $layerElements = [];
+        foreach ($arrLayers as $typeId => $categories) {
             $type = C4gFirefighterOperationTypesModel::findByPk($typeId);
             $typeLayerElement = C4GFirefighterFrontend::addMapStructureElementWithIdCalc(
                 $typeId,
@@ -109,7 +107,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                 true,
                 $child['hide']);
 
-            foreach ($categories as $categoryId=>$operations) {
+            foreach ($categories as $categoryId => $operations) {
                 if ($categoryId) {
                     $category = C4gFirefighterOperationCategoriesModel::findByPk($categoryId);
 
@@ -126,7 +124,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
                 } else {
                     $category = false;
                 }
-                foreach ($operations as $operationID=>$operation) {
+                foreach ($operations as $operationID => $operation) {
                     $operationLayerElement = C4GFirefighterFrontend::getOperationLayerData($child, $operation, $type, $category);
                     if (!$category) {
                         $typeLayerElement = C4GFirefighterFrontend::addMapStructureChild($typeLayerElement, $operationLayerElement);
@@ -144,7 +142,6 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
 
         return $layerElements;
     }
-
 
     /**
      * @param $child
@@ -174,33 +171,31 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
             }
 
             $language = $GLOBALS['TL_LANGUAGE'];
-            \System::loadLanguageFile('fe_c4g_firefighter_operations',$language);
+            \System::loadLanguageFile('fe_c4g_firefighter_operations', $language);
 
             $description = C4GFirefighterFrontend::addPopupDescriptionElement($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['infoHeadline'], $element->description);
 
             $subtitle = $typeName;
             if ($categoryName) {
-                $subtitle = $typeName.' ('.$categoryName.')';
+                $subtitle = $typeName . ' (' . $categoryName . ')';
             }
 
-
-            $settings = Database::getInstance()->execute("SELECT * FROM tl_c4g_settings LIMIT 1")->fetchAllAssoc();
+            $settings = Database::getInstance()->execute('SELECT * FROM tl_c4g_settings LIMIT 1')->fetchAllAssoc();
             $pageId = 0;
             if ($settings) {
                 $settings = $settings[0];
-                $pageId   = $settings['redirect_to_operations'];
+                $pageId = $settings['redirect_to_operations'];
             }
 
             $popupInfo =
                 C4GFirefighterFrontend::addPopupKeyElement($element->id) .
                 C4GFirefighterFrontend::addPopupHeader($caption, $subtitle) .
-                "<ul>" .
+                '<ul>' .
                 C4GFirefighterFrontend::addPopupListElement($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationDate'], date('d.m.Y', $element->startDate)) .
                 C4GFirefighterFrontend::addPopupListElement($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['locationDescription'], $element->location) .
-                "</ul>" .
+                '</ul>' .
                 $description .
                 C4GFirefighterFrontend::addRedirectButton($pageId, C4GBrickActionType::IDENTIFIER_DIALOG . ':' . $element->id, $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['readMore'], false, 0, 0, C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_OPERATIONS);
-
 
             $layerContent = $this->addMapStructureContent(
                 $locStyle,
@@ -227,5 +222,4 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
             return $structureElement;
         }
     }
-
 }
