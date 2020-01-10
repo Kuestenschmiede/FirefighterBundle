@@ -11,8 +11,8 @@
  */
 
 /** SETTINGS */
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['brickCaption'] = 'member';
-$GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['brickCaptionPlural'] = 'members';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['brickCaption'] = 'member';
+$GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['brickCaptionPlural'] = 'members';
 
 /** FIELDS */
 $GLOBALS['TL_LANG']['fe_c4g_firefighter_members']['firstname'] = 'firstname';
