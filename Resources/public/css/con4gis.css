@@ -15,3 +15,7 @@
 li .c4g_firefighter_operation_types, li .c4g_firefighter_operation_categories, li .c4g_firefighter_operations, li .c4g_firefighter_vehicle_types, li .c4g_firefighter_vehicles, li .c4g_firefighter_unit_types, li .c4g_firefighter_units {
   display: none !important;
 }
+
+li .active .c4g_firefighter_operation_types, li .active .c4g_firefighter_operation_categories, li .active .c4g_firefighter_operations, li .active .c4g_firefighter_vehicle_types, li .active .c4g_firefighter_vehicles, li .active .c4g_firefighter_unit_types, li .active .c4g_firefighter_units {
+  display: block !important;
+}

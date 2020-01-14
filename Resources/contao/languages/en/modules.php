@@ -11,13 +11,13 @@
  * @link      https://www.kuestenschmiede.de
  */
 
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_types'] = array('firefighting types', 'Determines your firefighting type and -symbol.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_categories'] = array('firefighting categories', 'Determines your firefighting categorie and -symbol.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operations']     = array('firefighting operations', 'Here you can manage your firefighting operations.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_vehicle_types']   = array('vehicle types', 'Here you can manage your vehicle types.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_vehicles']       = array('vehicles', 'Here you can manage your vehicles.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_unit_types']      = array('unit types', 'Here you can manage your unit types.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_units']          = array('units', 'Here you can manage your units.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_types'] = array('Firefighter: operation types', 'Determines your firefighting type and -symbol.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_categories'] = array('Firefighter: operation categories', 'Determines your firefighting categorie and -symbol.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operations']     = array('Firefighter: operations', 'Here you can manage your firefighting operations.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_vehicle_types']   = array('Firefighter: vehicle types', 'Here you can manage your vehicle types.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_vehicles']       = array('Firefighter: vehicles', 'Here you can manage your vehicles.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_unit_types']      = array('Firefighter: unit types', 'Here you can manage your unit types.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_units']          = array('Firefighter: units', 'Here you can manage your units.');
 
 
 $GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('Fire brigade - list of members', 'Phone and birthday list');

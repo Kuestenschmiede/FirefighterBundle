@@ -11,13 +11,13 @@
  * @link      https://www.kuestenschmiede.de
  */
 
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_types'] = array('Einsatzarten', 'Bestimmt Eure Einsatzarten und -symbole.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_categories'] = array('Einsatzkategorien', 'Bestimmt Eure Einsatzkategorien und -symbole.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operations']     = array('Einsätze', 'Hier könnt Ihr Eure Einsätze verwalten.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_vehicle_types']   = array('Fahrzeugtypen', 'Hier könnt Ihr Eure Fahrzeugtypen verwalten.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_vehicles']       = array('Fahrzeuge', 'Hier könnt Ihr Eure Fahrzeuge verwalten.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_unit_types']      = array('Einheittypen', 'Hier könnt Ihr Eure Einheittypen verwalten.');
-$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_units']          = array('Einheiten', 'Hier können Ihr Eure Einheiten verwalten.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_types'] = array('Firefighter: Einsatzarten', 'Bestimmt Eure Einsatzarten und -symbole.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operation_categories'] = array('Firefighter: Einsatzkategorien', 'Bestimmt Eure Einsatzkategorien und -symbole.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_operations']     = array('Firefighter: Einsätze', 'Hier könnt Ihr Eure Einsätze verwalten.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_vehicle_types']   = array('Firefighter: Fahrzeugtypen', 'Hier könnt Ihr Eure Fahrzeugtypen verwalten.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_vehicles']       = array('Firefighter: Fahrzeuge', 'Hier könnt Ihr Eure Fahrzeuge verwalten.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_unit_types']      = array('Firefighter: Einheittypen', 'Hier könnt Ihr Eure Einheittypen verwalten.');
+$GLOBALS['TL_LANG']['MOD']['c4g_firefighter_units']          = array('Firefighter: Einheiten', 'Hier können Ihr Eure Einheiten verwalten.');
 
 
 $GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('Feuerwehr - Mitgliederliste', 'Telefon- und Geburtstagsliste');
