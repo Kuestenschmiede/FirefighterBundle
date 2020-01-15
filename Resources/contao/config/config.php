@@ -11,18 +11,13 @@
  * @link      https://www.kuestenschmiede.de
  */
 
+use con4gis\CoreBundle\Classes\C4GVersionProvider;
 use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
-
-/**
- * Global settings
- */
-$GLOBALS['con4gis']['firefighter']['installed']    = true;
-
 
 /**
  * Frontend Modules
  */
-array_insert( $GLOBALS['FE_MOD']['con4gis'], $GLOBALS['con4gis']['maps']['installed']?1:0, array
+array_insert( $GLOBALS['FE_MOD']['con4gis'], C4GVersionProvider::isInstalled('con4gis/maps')?1:0, array
   (
     'C4GFirefighterMembers' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterMembers',
     'C4GFirefighterOperations' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperations',
