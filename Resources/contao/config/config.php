@@ -31,31 +31,45 @@ array_insert( $GLOBALS['FE_MOD']['con4gis'], C4GVersionProvider::isInstalled('co
 $GLOBALS['BE_MOD']['con4gis'] = array_merge($GLOBALS['BE_MOD']['con4gis'], array(
         'c4g_firefighter_operation_types' => array
         (
-            'tables'    => array('tl_c4g_firefighter_operation_types')
+            'brick' => 'firefighter',
+            'tables' => array('tl_c4g_firefighter_operation_types'),
+            'icon' => 'bundles/con4gisfirefighter/images/be-icons/operationtypes.svg'
         ),
         'c4g_firefighter_operation_categories' => array
         (
-            'tables'    => array('tl_c4g_firefighter_operation_categories')
+            'brick' => 'firefighter',
+            'tables' => array('tl_c4g_firefighter_operation_categories'),
+            'icon' => 'bundles/con4gisfirefighter/images/be-icons/operationcategories.svg'
         ),
         'c4g_firefighter_vehicle_types' => array
         (
-            'tables'    => array('tl_c4g_firefighter_vehicle_types')
+            'brick' => 'firefighter',
+            'tables' => array('tl_c4g_firefighter_vehicle_types'),
+            'icon' => 'bundles/con4gisfirefighter/images/be-icons/vehicletypes.svg'
         ),
         'c4g_firefighter_vehicles' => array
         (
-            'tables'    => array('tl_c4g_firefighter_vehicles')
+            'brick' => 'firefighter',
+            'tables' => array('tl_c4g_firefighter_vehicles'),
+            'icon' => 'bundles/con4gisfirefighter/images/be-icons/vehicles.svg'
         ),
         'c4g_firefighter_unit_types' => array
         (
-            'tables'    => array('tl_c4g_firefighter_unit_types')
+            'brick' => 'firefighter',
+            'tables' => array('tl_c4g_firefighter_unit_types'),
+            'icon' => 'bundles/con4gisfirefighter/images/be-icons/unittypes.svg'
         ),
         'c4g_firefighter_units' => array
         (
-            'tables'    => array('tl_c4g_firefighter_units')
+            'brick' => 'firefighter',
+            'tables' => array('tl_c4g_firefighter_units'),
+            'icon' => 'bundles/con4gisfirefighter/images/be-icons/units.svg'
         ),
         'c4g_firefighter_operations' => array
         (
-            'tables'    => array('tl_c4g_firefighter_operations')
+            'brick' => 'firefighter',
+            'tables' => array('tl_c4g_firefighter_operations'),
+            'icon' => 'bundles/con4gisfirefighter/images/be-icons/operations.svg'
         )
     )
 );
