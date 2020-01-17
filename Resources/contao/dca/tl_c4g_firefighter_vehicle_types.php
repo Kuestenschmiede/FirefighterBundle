@@ -40,7 +40,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicle_types'] = array
             'mode'              => 11,
             'fields'            => array('vehicle_type'),
             'panelLayout'       => 'filter;sort,search,limit',
-            //'headerFields'      => array('vehicle_opta','vehicle_type'),
+            'icon'              => 'bundles/con4giscore/images/be-icons/con4gis.org_dark.svg',
         ),
 
         'label' => array
@@ -91,7 +91,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicle_types'] = array
             (
                 'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicle_types']['show'],
                 'href'          => 'act=show',
-                'icon'          => 'show.gif',
+                'icon'          => 'show.svg',
             ),
         )
     ),
