@@ -17,14 +17,10 @@ use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
 /**
  * Frontend Modules
  */
-array_insert( $GLOBALS['FE_MOD']['con4gis'], C4GVersionProvider::isInstalled('con4gis/maps')?1:0, array
-  (
-    'C4GFirefighterMembers' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterMembers',
-    'C4GFirefighterOperations' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperations',
-    'C4GFirefighterOperationList' => 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperationList',
-  )
-);
-
+$GLOBALS['FE_MOD']['con4gis']['C4GFirefighterMembers'] = 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterMembers';
+$GLOBALS['FE_MOD']['con4gis']['C4GFirefighterOperations'] = 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperations';
+$GLOBALS['FE_MOD']['con4gis']['C4GFirefighterOperationList'] = 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperationList';
+asort($GLOBALS['FE_MOD']['con4gis']);
 /**
  * Backend Modules
  */

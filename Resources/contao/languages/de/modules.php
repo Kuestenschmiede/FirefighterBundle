@@ -20,7 +20,7 @@ $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_unit_types']      = array('Firefight
 $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_units']          = array('Firefighter: Einheiten', 'Hier können Ihr Eure Einheiten verwalten.');
 
 
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('Feuerwehr - Mitgliederliste', 'Telefon- und Geburtstagsliste');
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperations'] = array('Feuerwehr - Einsatztabelle', 'Filterbare Einsatztabelle');
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperationList'] = array('Feuerwehr - Einsatzliste', 'Einfache Einsatzliste');
+$GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('firefighter: Mitgliederliste', 'Telefon- und Geburtstagsliste');
+$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperations'] = array('firefighter: Einsatztabelle', 'Filterbare Einsatztabelle');
+$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperationList'] = array('firefighter: Einsatzliste', 'Einfache Einsatzliste');
 

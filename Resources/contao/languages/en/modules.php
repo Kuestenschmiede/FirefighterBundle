@@ -20,7 +20,7 @@ $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_unit_types']      = array('Firefight
 $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_units']          = array('Firefighter: units', 'Here you can manage your units.');
 
 
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('Fire brigade - list of members', 'Phone and birthday list');
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperations'] = array('Fire brigade - operation table', 'Filterable operation table');
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperationList'] = array('Fire brigade - list of operations', 'Simple list of operations');
+$GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('firefighter: List of members', 'Phone and birthday list');
+$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperations'] = array('firefighter: Operation table', 'Filterable operation table');
+$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperationList'] = array('firefighter: List of operations', 'Simple list of operations');
 
