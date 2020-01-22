@@ -70,10 +70,6 @@ $GLOBALS['BE_MOD']['con4gis'] = array_merge($GLOBALS['BE_MOD']['con4gis'], array
     )
 );
 
-if (TL_MODE == "BE") {
-    $GLOBALS['TL_CSS'][] = '/bundles/con4gisfirefighter/css/con4gis.css';
-}
-
 /** Models */
 $GLOBALS['TL_MODELS']['tl_c4g_firefighter_operations'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationsModel';
 $GLOBALS['TL_MODELS']['tl_c4g_firefighter_operation_types'] = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationTypesModel';

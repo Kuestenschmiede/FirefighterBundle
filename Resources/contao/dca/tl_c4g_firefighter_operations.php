@@ -10,8 +10,8 @@
  * @link      https://www.kuestenschmiede.de
  */
 
-use \con4gis\MapsBundle\Resources\contao\classes\GeoPicker;
-use con4gis\MapsBundle\Resources\contao\classes\Utils;
+use \con4gis\MapsBundle\Classes\GeoPicker;
+use con4gis\MapsBundle\Classes\Utils;
 
 
 /**
@@ -279,7 +279,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'inputType'               => 'c4g_text',
             'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
             'save_callback'           => array(array('tl_c4g_firefighter_operations','setLocLon')),
-            'wizard'                  => array(array('\con4gis\MapsBundle\Resources\contao\classes\GeoPicker', 'getPickerLink')),
+            'wizard'                  => array(array('\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink')),
             'sql'                     => "varchar(20) NOT NULL default ''"
         ),
 
@@ -291,7 +291,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'inputType'               => 'c4g_text',
             'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
             'save_callback'           => array(array('tl_c4g_firefighter_operations','setLocLat')),
-            'wizard'                  => array(array('\con4gis\MapsBundle\Resources\contao\classes\GeoPicker', 'getPickerLink')),
+            'wizard'                  => array(array('\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink')),
             'sql'                     => "varchar(20) NOT NULL default ''"
         ),
 
