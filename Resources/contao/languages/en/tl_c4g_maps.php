@@ -16,4 +16,4 @@ use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
 
 $GLOBALS['TL_LANG']['tl_c4g_maps']['tDontShowIfEmpty'] = array('hide if no entries exist', 'hides the layer in the starboard if it contains no entries.');
 
-$GLOBALS['TL_LANG']['tl_c4g_maps']['references'][C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP]  = 'operations map';
+$GLOBALS['TL_LANG']['tl_c4g_maps']['references'][C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MAP]  = '[firefighter] Operations';
