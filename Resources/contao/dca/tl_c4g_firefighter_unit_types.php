@@ -41,7 +41,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
             'fields'            => array('unit_type'),
             'panelLayout'       => 'filter;sort,search,limit',
             'headerFields'      => array('unit_type'),
-            'icon'              => 'bundles/con4giscore/images/be-icons/con4gis.org_dark.svg',
+            'icon'              => 'bundles/con4giscore/images/be-icons/con4gis_blue.svg',
         ),
 
         'label' => array

@@ -49,7 +49,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
             'mode'              => 2,
             'fields'            => array('startDate DESC', 'startTime DESC','operation_type','operation_category','caption'),
             'panelLayout'       => 'filter;sort,search,limit',
-            'icon'              => 'bundles/con4giscore/images/be-icons/con4gis.org_dark.svg',
+            'icon'              => 'bundles/con4giscore/images/be-icons/con4gis_blue.svg',
         ),
 
         'label' => array
