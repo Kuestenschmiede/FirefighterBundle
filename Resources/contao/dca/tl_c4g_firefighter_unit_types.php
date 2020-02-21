@@ -117,6 +117,11 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
             'sql'               => "int(10) unsigned NOT NULL default '0'"
         ),
 
+        'importId' => array
+        (
+            'sql'               => "int(10) unsigned NOT NULL default '0'"
+        ),
+
         'unit_type' => array
         (
             'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['unit_type'],
