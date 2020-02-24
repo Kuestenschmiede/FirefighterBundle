@@ -117,7 +117,8 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicles'] = array
 
         'importId' => array
         (
-            'sql'               => "int(10) unsigned NOT NULL default '0'"
+            'sql'               => "int(10) unsigned NOT NULL default '0'",
+            'eval'              => array('doNotCopy' => true)
         ),
 
         'caption' => array
