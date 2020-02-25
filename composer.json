@@ -1,7 +1,7 @@
 {
   "name": "con4gis/firefighter",
   "description": "A con4gis brick for firefighters",
-  "keywords": ["con4gis", "firefighter", "rescuemap", "operations", "members", "verhicles", "contao", "c4g", "feuerwehr", "einsätze", "brigade"],
+  "keywords": ["con4gis", "firefighter", "rescuemap", "operations", "members", "vehicles", "contao", "c4g", "feuerwehr", "einsätze", "brigade"],
   "type": "contao-bundle",
   "homepage": "https://con4gis.org",
   "license": "LGPL-3.0-or-later",
@@ -14,9 +14,9 @@
   ],
   "require": {
     "contao/core-bundle": "^4.4",
-    "con4gis/core": "^3.3",
-    "con4gis/projects": "^1.5",
-    "con4gis/maps": "^6.2"
+    "con4gis/core": "^4.0",
+    "con4gis/projects": "^2.0",
+    "con4gis/maps": "^7.0"
   },
   "conflict": {
     "contao/core": "*",
