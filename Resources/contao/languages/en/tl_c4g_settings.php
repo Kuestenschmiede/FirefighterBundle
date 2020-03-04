@@ -14,4 +14,4 @@
 $GLOBALS['TL_LANG']['tl_c4g_settings']['redirect_to_operations'] = array('Forwarding to the operations', 'On which page is the list of operations located ?');
 
 /** LEGENDS **/
-$GLOBALS['TL_LANG']['tl_c4g_settings']['firefighter_legend'] = "con4gis for fire fighters";
+$GLOBALS['TL_LANG']['tl_c4g_settings']['firefighter_legend'] = "con4gis for fire fighters (con4gis/firefighter)";

@@ -14,4 +14,4 @@
 $GLOBALS['TL_LANG']['tl_c4g_settings']['redirect_to_operations'] = array('Weiterleitung zu den Einsätzen', 'Auf welcher Seite befindet sich die Einsatzliste?');
 
 /** LEGENDS **/
-$GLOBALS['TL_LANG']['tl_c4g_settings']['firefighter_legend'] = "con4gis für Feuerwehren";
+$GLOBALS['TL_LANG']['tl_c4g_settings']['firefighter_legend'] = "con4gis für Feuerwehren (con4gis/firefighter)";

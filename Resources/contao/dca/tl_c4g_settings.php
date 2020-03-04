@@ -13,7 +13,7 @@
 
 
 //Palettes
-$GLOBALS['TL_DCA']['tl_c4g_settings']['palettes']['default'] .= '{firefighter_legend},redirect_to_operations;';
+$GLOBALS['TL_DCA']['tl_c4g_settings']['palettes']['default'] .= '{firefighter_legend:hide},redirect_to_operations;';
 
 $GLOBALS['TL_DCA']['tl_c4g_settings']['fields']['redirect_to_operations'] = array
 (
