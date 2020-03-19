@@ -13,7 +13,10 @@
 
 
 //Palettes
-$GLOBALS['TL_DCA']['tl_c4g_settings']['palettes']['default'] .= '{firefighter_legend:hide},redirect_to_operations;';
+Contao\CoreBundle\DataContainer\PaletteManipulator::create()
+    ->addLegend('firefighter_legend', 'expert_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_BEFORE, true)
+    ->addField('redirect_to_operations', 'firefighter_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+    ->applyToPalette('default', 'tl_c4g_settings');
 
 $GLOBALS['TL_DCA']['tl_c4g_settings']['fields']['redirect_to_operations'] = array
 (
