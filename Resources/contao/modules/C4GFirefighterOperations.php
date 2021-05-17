@@ -1,4 +1,14 @@
 <?php
+/*
+ * This file is part of con4gis, the gis-kit for Contao CMS.
+ * @package con4gis
+ * @version 8
+ * @author con4gis contributors (see "authors.txt")
+ * @license LGPL-3.0-or-later
+ * @copyright (c) 2010-2021, by Küstenschmiede GmbH Software & Design
+ * @link https://www.con4gis.org
+ */
+
 /**
  *  con4gis for Contao Open Source CMS
  *
@@ -44,7 +54,7 @@ class C4GFirefighterOperations extends C4GBrickModuleParent
     protected $viewType     = C4GBrickViewType::PUBLICVIEW;
     protected $withBackup   = false;
     protected $captionField = 'caption';
-    protected $brickStyle   = 'bundles/con4gisfirefighter/frontend.css';
+    protected $brickStyle   = 'bundles/con4gisfirefighter/dist/css/frontend.min.css';
     protected $loadClearBrowserUrlResources = false;
     protected $jQueryUseMaps = true;
 
