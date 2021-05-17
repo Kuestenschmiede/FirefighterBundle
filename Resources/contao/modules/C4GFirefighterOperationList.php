@@ -26,7 +26,6 @@ use con4gis\CoreBundle\Resources\contao\models\C4gSettingsModel;
 use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterVehiclesModel;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GCheckboxField;
-use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GCKEditorField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GDateField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GEmailField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GGalleryField;
@@ -39,6 +38,7 @@ use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GSelectField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTelField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTextField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTimeField;
+use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTrixEditorField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GUrlField;
 use con4gis\ProjectsBundle\Classes\Framework\C4GBrickModuleParent;
 use con4gis\ProjectsBundle\Classes\Lists\C4GBrickRenderMode;
@@ -157,7 +157,7 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $captionField->setTableColumn(true);
         $fieldList[] = $captionField;
 
-        $descriptionField = new C4GCKEditorField();
+        $descriptionField = new C4GTrixEditorField();
         $descriptionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description']);
         $descriptionField->setFieldName('description');
         $fieldList[] = $descriptionField;
