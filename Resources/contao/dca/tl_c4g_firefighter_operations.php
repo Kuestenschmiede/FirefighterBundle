@@ -5,7 +5,7 @@
  * @version 8
  * @author con4gis contributors (see "authors.txt")
  * @license LGPL-3.0-or-later
- * @copyright (c) 2010-2021, by Küstenschmiede GmbH Software & Design
+ * @copyright (c) 2010-2022, by Küstenschmiede GmbH Software & Design
  * @link https://www.con4gis.org
  */
 
@@ -71,7 +71,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
         'global_operations' => array
         (
             'all' => [
-                'label'         => $GLOBALS['TL_LANG']['MSC']['all'],
+                'label'         => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'          => 'act=select',
                 'class'         => 'header_edit_all',
                 'attributes'    => 'onclick="Backend.getScrollOffSet()" accesskey="e"'
@@ -89,26 +89,26 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
         (
             'edit' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['edit'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['edit'],
                 'href'          => 'act=edit',
                 'icon'          => 'edit.svg',
             ),
             'copy' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['copy'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['copy'],
                 'href'          => 'act=copy',
                 'icon'          => 'copy.svg',
             ),
             'delete' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['delete'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['delete'],
                 'href'          => 'act=delete',
                 'icon'          => 'delete.svg',
                 'attributes'    => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false;Backend.getScrollOffset()"',
             ),
             'show' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['show'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['show'],
                 'href'          => 'act=show',
                 'icon'          => 'show.svg',
             ),
@@ -157,7 +157,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
 
         'caption' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['caption'],
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['caption'],
             'default'           => '',
             'sorting'           => true,
             'flag'              => 1,
@@ -181,7 +181,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
 
         'operation_type' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_type'],
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_type'],
             'inputType'         => 'select',
             'default'           => 0,
             'sorting'           => true,
@@ -195,7 +195,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
 
         'operation_category' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_category'],
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_category'],
             'inputType'         => 'select',
             'default'           => 0,
             'foreignKey'        => 'tl_c4g_firefighter_operation_categories.operation_category',
@@ -206,7 +206,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
 
         'operation_leader' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_leader'],
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['operation_leader'],
             'default'           => '',
             'sorting'           => true,
             'flag'              => 1,
@@ -394,7 +394,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_operations'] = array
 
         'userId' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['userId'],
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_operations']['userId'],
             'exclude'           => true,
             'sorting'           => true,
             'search'            => true,

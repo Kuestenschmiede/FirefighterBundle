@@ -5,7 +5,7 @@
  * @version 8
  * @author con4gis contributors (see "authors.txt")
  * @license LGPL-3.0-or-later
- * @copyright (c) 2010-2021, by Küstenschmiede GmbH Software & Design
+ * @copyright (c) 2010-2022, by Küstenschmiede GmbH Software & Design
  * @link https://www.con4gis.org
  */
 
@@ -62,7 +62,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicles'] = array
         'global_operations' => array
         (
             'all' => [
-                'label'         => $GLOBALS['TL_LANG']['MSC']['all'],
+                'label'         => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'          => 'act=select',
                 'class'         => 'header_edit_all',
                 'attributes'    => 'onclick="Backend.getScrollOffSet()" accesskey="e"'
@@ -80,26 +80,26 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicles'] = array
         (
             'edit' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['edit'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['edit'],
                 'href'          => 'act=edit',
                 'icon'          => 'edit.svg',
             ),
             'copy' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['copy'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['copy'],
                 'href'          => 'act=copy',
                 'icon'          => 'copy.svg',
             ),
             'delete' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['delete'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['delete'],
                 'href'          => 'act=delete',
                 'icon'          => 'delete.svg',
                 'attributes'    => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false;Backend.getScrollOffset()"',
             ),
             'show' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['show'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['show'],
                 'href'          => 'act=show',
                 'icon'          => 'show.svg',
             ),
@@ -133,7 +133,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicles'] = array
 
         'caption' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['caption'],
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['caption'],
             'sorting'           => true,
             'default'           => '',
             'flag'              => 1,
@@ -145,7 +145,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicles'] = array
 
         'vehicle_type_id' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['vehicle_type_id'],
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['vehicle_type_id'],
             'inputType'         => 'select',
             'default'           => '0',
             'foreignKey'        => 'tl_c4g_firefighter_vehicle_types.vehicle_type',
@@ -156,7 +156,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_vehicles'] = array
 
         'vehicle_page_link' => array
         (
-            'label'                   => $GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['vehicle_page_link'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_vehicles']['vehicle_page_link'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',

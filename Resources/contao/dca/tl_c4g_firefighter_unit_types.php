@@ -5,7 +5,7 @@
  * @version 8
  * @author con4gis contributors (see "authors.txt")
  * @license LGPL-3.0-or-later
- * @copyright (c) 2010-2021, by Küstenschmiede GmbH Software & Design
+ * @copyright (c) 2010-2022, by Küstenschmiede GmbH Software & Design
  * @link https://www.con4gis.org
  */
 
@@ -63,7 +63,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
         'global_operations' => array
         (
             'all' => [
-                'label'         => $GLOBALS['TL_LANG']['MSC']['all'],
+                'label'         => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'          => 'act=select',
                 'class'         => 'header_edit_all',
                 'attributes'    => 'onclick="Backend.getScrollOffSet()" accesskey="e"'
@@ -81,26 +81,26 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
         (
             'edit' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['edit'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['edit'],
                 'href'          => 'act=edit',
                 'icon'          => 'edit.svg',
             ),
             'copy' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['copy'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['copy'],
                 'href'          => 'act=copy',
                 'icon'          => 'copy.svg',
             ),
             'delete' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['delete'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['delete'],
                 'href'          => 'act=delete',
                 'icon'          => 'delete.svg',
                 'attributes'    => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false;Backend.getScrollOffset()"',
             ),
             'show' => array
             (
-                'label'         => $GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['show'],
+                'label'         => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['show'],
                 'href'          => 'act=show',
                 'icon'          => 'show.svg',
             ),
@@ -135,7 +135,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
 
         'unit_type' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['unit_type'],
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['unit_type'],
             'flag'              => 1,
             'sorting'           => true,
             'default'           => '',
@@ -147,7 +147,7 @@ $GLOBALS['TL_DCA']['tl_c4g_firefighter_unit_types'] = array
 
         'unit_locstyle' => array
         (
-            'label'             => $GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['unit_locstyle'],
+            'label'             => &$GLOBALS['TL_LANG']['tl_c4g_firefighter_unit_types']['unit_locstyle'],
             'inputType'         => 'select',
             //'eval'              => array('tl_class' => 'w50'),
             'default'           => '0',
