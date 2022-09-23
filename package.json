@@ -8,6 +8,7 @@
     "build-prod": "gulp deploy"
   },
   "devDependencies": {
+    "sass": "^1.55.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.2.0",
