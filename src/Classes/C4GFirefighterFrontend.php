@@ -197,8 +197,7 @@ class C4GFirefighterFrontend extends C4GBrickMapFrontendParent
             }
 
             $popupInfo =
-                C4GFirefighterFrontend::addPopupKeyElement($element->id) .
-                C4GFirefighterFrontend::addPopupHeader($caption, $subtitle) .
+                C4GFirefighterFrontend . phpC4GFirefighterFrontend::addPopupKeyElement($element->id) .
                 '<ul>' .
                 C4GFirefighterFrontend::addPopupListElement($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operationDate'], date('d.m.Y', $element->startDate)) .
                 C4GFirefighterFrontend::addPopupListElement($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['locationDescription'], $element->location) .
