@@ -1,10 +1,19 @@
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
 
-\.idea/FirefighterBundle\.iml
+# Thumbnails
+._*
 
-\.idea/misc\.xml
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
-\.idea/modules\.xml
-
-\.idea/vcs\.xml
-
-\.idea/workspace\.xml
+# misc
+node_modules/

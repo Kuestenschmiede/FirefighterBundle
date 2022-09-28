@@ -8,26 +8,26 @@
  * @link https://www.con4gis.org
  */
 
-li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_0:before {
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_0 {
     content: "\f46d";
 }
 
-li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_1:before {
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_1 {
     content: "\f5a0";
 }
 
-li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_2:before {
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_2 {
     content: "\f1b9";
 }
 
-li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_3:before {
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3 {
     content: "\f030";
 }
 
-li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_0:before,
-li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_1:before,
-li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_2:before,
-li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_3:before {
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_0,
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_1,
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_2,
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3 {
     font-weight: 900;
     -webkit-font-smoothing: antialiased;
     display: inline-block;
@@ -49,13 +49,13 @@ li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_3:befor
 @media (max-width:1330px) {
     #main li.c4gGuiTabLink {visibility:hidden; width: 70px; padding: 0px; }
 
-    #main li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_0:before,
-    #main li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_1:before,
-    #main li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_2:before,
-    #main li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_3:before {visibility: visible; width: 18px; padding: 17.5px;}
+    #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_0,
+    #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_1,
+    #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_2,
+    #main li.c4gGuiTabLink.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3 {visibility: visible; width: 18px; padding: 17.5px;}
 
-    #main li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_0.ui-state-active:before,
-    #main li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_1.ui-state-active:before,
-    #main li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_2.ui-state-active:before,
-    #main li.c4gGuiTabLink.ui-tabs-anchor.ui-tabs-tab.ui-corner-top.ui-tab.c4g_tab_3.ui-state-active:before { padding: 18px; }
+    #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active:before.c4g_tab_0,
+    #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active:before.c4g_tab_1,,
+    #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active:before.c4g_tab_2,
+    #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active:before.c4g_tab_3 { padding: 18px; }
 }
