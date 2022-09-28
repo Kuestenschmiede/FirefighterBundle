@@ -79,7 +79,7 @@ class C4gFirefighterOperationsController extends C4GBaseController
     //JQuery GUI Resource Params
     protected $jQueryAddCore = true;
     protected $jQueryAddJquery = true;
-    protected $jQueryAddJqueryUI = true;
+    protected $jQueryAddJqueryUI = false;
     protected $jQueryUseTree = false;
     protected $jQueryUseTable = true;
     protected $jQueryUseHistory = false;
