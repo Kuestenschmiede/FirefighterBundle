@@ -34,21 +34,19 @@ class con4gisFirefighterExtension extends Extension
         return "con4gis_firefighter";
     }
 
-    private $files = [
-        "listeners.yaml"
-    ];
-
     /**
-     * {@inheritdoc}
+     * Loads a specific configuration.
+     * @param $configs
+     * @param $container
+     * @throws \InvalidArgumentException When provided tag is not defined in this extension
+     * @throws \Exception
      */
-    public function load(array $mergedConfig, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
+            new FileLocator(__DIR__.'/../Resources/config')
         );
-        foreach ($this->files as $file) {
-            $loader->load($file);
-        }
+        $loader->load('services.yml');
     }
 }

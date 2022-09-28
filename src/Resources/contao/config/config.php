@@ -24,13 +24,6 @@ use con4gis\CoreBundle\Classes\C4GVersionProvider;
 use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
 
 /**
- * Frontend Modules
- */
-$GLOBALS['FE_MOD']['con4gis']['C4GFirefighterMembers'] = 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterMembers';
-$GLOBALS['FE_MOD']['con4gis']['C4GFirefighterOperations'] = 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperations';
-$GLOBALS['FE_MOD']['con4gis']['C4GFirefighterOperationList'] = 'con4gis\FirefighterBundle\Resources\contao\modules\C4GFirefighterOperationList';
-asort($GLOBALS['FE_MOD']['con4gis']);
-/**
  * Backend Modules
  */
 $GLOBALS['BE_MOD']['con4gis'] = array_merge($GLOBALS['BE_MOD']['con4gis'], array(

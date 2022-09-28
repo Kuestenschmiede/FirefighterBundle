@@ -20,7 +20,7 @@
  * @link      https://www.kuestenschmiede.de
  */
 
-namespace con4gis\FirefighterBundle\Resources\contao\modules;
+namespace con4gis\FirefighterBundle\Controller;
 
 use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
 use con4gis\ProjectsBundle\Classes\Fieldlist\C4GBrickFieldSourceType;
@@ -32,11 +32,17 @@ use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GNumberField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTelField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTextField;
 use con4gis\ProjectsBundle\Classes\Files\C4GBrickFileType;
+use con4gis\ProjectsBundle\Classes\Framework\C4GBaseController;
 use con4gis\ProjectsBundle\Classes\Framework\C4GBrickModuleParent;
 use con4gis\ProjectsBundle\Classes\Views\C4GBrickViewType;
+use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\ModuleModel;
+use Symfony\Component\HttpFoundation\Session\Session;
 
-class C4GFirefighterMembers extends C4GBrickModuleParent
+
+class C4gFirefighterMembersController extends C4GBaseController
 {
+    public const TYPE = 'C4gFirefighterMembers';
     protected $tableName    = 'tl_members';
     protected $modelClass   = 'Contao\MemberModel';
     protected $findBy       = array('disable', array(0, ""));
@@ -44,6 +50,16 @@ class C4GFirefighterMembers extends C4GBrickModuleParent
     protected $brickKey     = C4GFirefighterBrickTypes::BRICK_C4G_FIREFIGHTER_MEMBERS;
     protected $viewType     = C4GBrickViewType::PUBLICVIEW;
     protected $withBackup   = false;
+
+    /**
+     * @param string $rootDir
+     * @param Session $session
+     * @param ContaoFramework $framework
+     */
+    public function __construct(string $rootDir, Session $session, ContaoFramework $framework, ModuleModel $model = null)
+    {
+        parent::__construct($rootDir, $session, $framework, $model);
+    }
 
     public function initBrickModule($id)
     {
@@ -59,7 +75,7 @@ class C4GFirefighterMembers extends C4GBrickModuleParent
     /**
      * @return array|void
      */
-    public function addFields()
+    public function addFields() : array
     {
         $fieldList = array();
 
@@ -144,7 +160,7 @@ class C4GFirefighterMembers extends C4GBrickModuleParent
         $birthdateField->setMandatory(false);
         $fieldList[] = $birthdateField;
 
-        $this->fieldList = $fieldList;
+        return $fieldList;
 
     }
 

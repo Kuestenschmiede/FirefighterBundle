@@ -1,20 +1,33 @@
 @charset "UTF-8";
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_0 {
-  content: "\f46d"
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "\f06d"
+}
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_0 {
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "\f06d"
 }
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_1 {
+  font: normal normal normal 14px/1 FontAwesome;
   content: "\f5a0"
 }
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_2 {
+  font: normal normal normal 14px/1 FontAwesome;
   content: "\f1b9"
 }
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3 {
+  font: normal normal normal 14px/1 FontAwesome;
   content: "\f030"
 }
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_0,
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_1,
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_2,
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_3,
+li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_0,
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_1,
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_2,
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3 {
+  font: normal normal normal 14px/1 FontAwesome;
   font-weight: 900;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -38,18 +51,18 @@ li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3 {
     width: 70px;
     padding: 0
   }
-  #main li.c4gGuiTabLink.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3,
   #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_0,
   #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_1,
-  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_2 {
+  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_2,
+  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3 {
     visibility: visible;
     width: 18px;
     padding: 17.5px
   }
-  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active:before.c4g_tab_0,
-  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active:before.c4g_tab_1,
-  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active:before.c4g_tab_2,
-  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active:before.c4g_tab_3 {
+  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_0,
+  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_1,
+  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_2,
+  #main li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_3 {
     padding: 18px
   }
 }

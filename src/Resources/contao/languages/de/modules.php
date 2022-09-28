@@ -29,7 +29,7 @@ $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_unit_types']      = array('Einheitty
 $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_units']          = array('Einheiten', 'Hier können Ihr Eure Einheiten verwalten.');
 
 
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('(firefighter) Mitgliederliste', 'Telefon- und Geburtstagsliste');
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperations'] = array('(firefighter) Einsatztabelle', 'Filterbare Einsatztabelle');
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperationList'] = array('(firefighter) Einsatzliste', 'Einfache Einsatzliste');
+$GLOBALS['TL_LANG']['FMD'][\con4gis\FirefighterBundle\Controller\C4gFirefighterMembersController::TYPE] = array('(firefighter) Mitgliederliste', 'Telefon- und Geburtstagsliste');
+$GLOBALS['TL_LANG']['FMD'][\con4gis\FirefighterBundle\Controller\C4gFirefighterOperationsController::TYPE] = array('(firefighter) Einsatztabelle', 'Filterbare Einsatztabelle');
+$GLOBALS['TL_LANG']['FMD'][\con4gis\FirefighterBundle\Controller\C4gFirefighterOperationListController::TYPE] = array('(firefighter) Einsatzliste', 'Einfache Einsatzliste');
 

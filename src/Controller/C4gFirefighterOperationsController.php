@@ -20,12 +20,12 @@
  * @link      https://www.kuestenschmiede.de
  */
 
-namespace con4gis\FirefighterBundle\Resources\contao\modules;
+namespace con4gis\FirefighterBundle\Controller;
 
-use con4gis\CoreBundle\Resources\contao\models\C4gSettingsModel;
 use con4gis\FirefighterBundle\Classes\C4GFirefighterBrickTypes;
 use con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterVehiclesModel;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GCheckboxField;
+use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GCKEditorField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GDateField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GEmailField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GGalleryField;
@@ -38,14 +38,19 @@ use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GSelectField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTelField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTextField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTimeField;
-use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GTrixEditorField;
 use con4gis\ProjectsBundle\Classes\Fieldtypes\C4GUrlField;
+use con4gis\ProjectsBundle\Classes\Framework\C4GBaseController;
 use con4gis\ProjectsBundle\Classes\Framework\C4GBrickModuleParent;
+use con4gis\ProjectsBundle\Classes\Filter\C4GDateTimeListFilter;
 use con4gis\ProjectsBundle\Classes\Lists\C4GBrickRenderMode;
 use con4gis\ProjectsBundle\Classes\Views\C4GBrickViewType;
+use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\ModuleModel;
+use Symfony\Component\HttpFoundation\Session\Session;
 
-class C4GFirefighterOperationList extends C4GBrickModuleParent
+class C4gFirefighterOperationsController extends C4GBaseController
 {
+    public const TYPE = 'C4gFirefighterOperations';
     protected $tableName    = 'tl_c4g_firefighter_operations';
     protected $modelClass   = 'con4gis\FirefighterBundle\Resources\contao\models\C4gFirefighterOperationsModel';
     protected $findBy       = array('published', '1');
@@ -54,24 +59,54 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
     protected $viewType     = C4GBrickViewType::PUBLICVIEW;
     protected $withBackup   = false;
     protected $captionField = 'caption';
-    protected $loadClearBrowserUrlResources = true;
+    protected $brickStyle   = 'bundles/con4gisfirefighter/dist/css/frontend.min.css';
+
+    //Resource Params
+    protected $loadDefaultResources = true;
+    protected $loadDateTimePickerResources = false;
+    protected $loadChosenResources = false;
+    protected $loadClearBrowserUrlResources = false;
+    protected $loadConditionalFieldDisplayResources = true;
+    protected $loadMoreButtonResources = false;
+    protected $loadFontAwesomeResources = true;
+    protected $loadTriggerSearchFromOtherModuleResources = false;
+    protected $loadFileUploadResources = false;
+    protected $loadMultiColumnResources = false;
+    protected $loadMiniSearchResources = false;
+    protected $loadHistoryPushResources = false;
+    protected $loadDatePicker = true;
+
+    //JQuery GUI Resource Params
     protected $jQueryAddCore = true;
     protected $jQueryAddJquery = true;
     protected $jQueryAddJqueryUI = true;
     protected $jQueryUseTree = false;
-    protected $jQueryUseTable = false;
+    protected $jQueryUseTable = true;
     protected $jQueryUseHistory = false;
-    protected $jQueryUseTooltip = false;
-    protected $jQueryUseMaps = false;
+    protected $jQueryUseTooltip = true;
+    protected $jQueryUseMaps = true;
     protected $jQueryUseGoogleMaps = false;
     protected $jQueryUseMapsEditor = false;
     protected $jQueryUseWswgEditor = false;
     protected $jQueryUseScrollPane = false;
     protected $jQueryUsePopups = false;
 
+    protected $withPermissionCheck = false;
+    protected $useUuidCookie = false;
+
+    /**
+     * @param string $rootDir
+     * @param Session $session
+     * @param ContaoFramework $framework
+     */
+    public function __construct(string $rootDir, Session $session, ContaoFramework $framework, ModuleModel $model = null)
+    {
+        parent::__construct($rootDir, $session, $framework, $model);
+    }
+
     public function initBrickModule($id)
     {
-        parent::initBrickModule($id);
+        parent::initBrickModule($id); 
 
         $this->setBrickCaptions(
             $GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['brickCaption'],
@@ -79,18 +114,22 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
 
         $this->dialogParams->setTabContent(true);
         $this->dialogParams->setWithNextPrevButtons(false);
-        $this->dialogParams->setRedirectWithSaving(false);
         $this->listParams->setWithExportButtons(false);
-        $this->listParams->setRenderMode(C4GBrickRenderMode::LISTBASED);
-        $this->listParams->setCaptionField('caption');
-        $this->listParams->setRowCount($this->c4g_row_count);
-        $this->listParams->setRedirectTo($this->settings['redirect_to_operations']);
+
+        $filter = new C4GDateTimeListFilter($this->brickKey);
+        $filter->setFieldName('startDate')
+            ->setDefaultFilter(
+                mktime(0, 0, 0,1, 1),
+                mktime(23, 59, 59, date("n"), date("d"))
+            )
+            ->setButtonText($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['button_period']);
+        $this->listParams->setFilterObject($filter);
     }
 
     /**
      * @return array|void
      */
-    public function addFields()
+    public function addFields() : array
     {
         $fieldList = array();
 
@@ -104,6 +143,11 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $infoHeadlineField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['infoHeadline']);
         $fieldList[] = $infoHeadlineField;
 
+        $captionField = new C4GTextField();
+        $captionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption']);
+        $captionField->setFieldName('caption');
+        $captionField->setTableColumn(true);
+        $fieldList[] = $captionField;
 
         $startDateField = new C4GDateField();
         $startDateField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['startDate']);
@@ -111,7 +155,7 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $startDateField->setTableColumn(true);
         $startDateField->setSortColumn(true);
         $startDateField->setSortType('de_date');
-        $startDateField->setSortSequence(SORT_DESC);
+        $startDateField->setSortSequence('desc');
         $startDateField->setShowIfEmpty(false);
         $fieldList[] = $startDateField;
 
@@ -151,15 +195,16 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $operationCategoryField->setShowIfEmpty(false);
         $fieldList[] = $operationCategoryField;
 
-        $captionField = new C4GTextField();
-        $captionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['caption']);
-        $captionField->setFieldName('caption');
-        $captionField->setTableColumn(true);
-        $fieldList[] = $captionField;
+        $leaderField = new C4GTextField();
+        $leaderField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['operation_leader']);
+        $leaderField->setFieldName('operation_leader');
+        $leaderField->setTableColumn(false);
+        $fieldList[] = $leaderField;
 
-        $descriptionField = new C4GTrixEditorField();
+        $descriptionField = new C4GTextField();
         $descriptionField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['description']);
         $descriptionField->setFieldName('description');
+        $descriptionField->setSimpleTextWithoutEditing(true);
         $fieldList[] = $descriptionField;
 
         $mapsHeadlineField = new C4GHeadlineField();
@@ -171,17 +216,18 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $locationField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['location']);
         $locationField->setColumnWidth(20);
         $locationField->setSortColumn(false);
-        $locationField->setTableColumn(false);
+        $locationField->setTableColumn(true);
         $locationField->setMandatory(false);
         $fieldList[] = $locationField;
 
         $geopickerField = new C4GGeopickerField();
         $geopickerField->setFieldName('geopicker');
-        $geopickerField->setTitle($GLOBALS['TL_LANG']['fe_c4g_firefighter_operations']['geopicker']);
+        $geopickerField->setTitle("");
         $geopickerField->setSortColumn(false);
         $geopickerField->setTableColumn(false);
         $geopickerField->setMandatory(false);
         $geopickerField->setEditable(false);
+        $geopickerField->setWithoutAddressRow(true);
         $fieldList[] = $geopickerField;
 
         $sectionHeadlineField = new C4GHeadlineField();
@@ -241,7 +287,7 @@ class C4GFirefighterOperationList extends C4GBrickModuleParent
         $pressRelease3Field->setShowIfEmpty(false);
         $fieldList[] = $pressRelease3Field;
 
-        $this->fieldList = $fieldList;
+        return $fieldList;
     }
 
 }

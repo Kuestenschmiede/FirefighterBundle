@@ -1,6 +1,0 @@
-services:
-  ## Load Layers (event from MapsBundle)
-  firefighter.onAddLocations:
-      class: con4gis\FirefighterBundle\Classes\C4GFirefighterFrontend
-      tags:
-          - { name: kernel.event_listener, event: maps.layers.load, method: onAddLocations, priority: 128 }

@@ -29,7 +29,7 @@ $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_unit_types']      = array('Unit type
 $GLOBALS['TL_LANG']['MOD']['c4g_firefighter_units']          = array('Units', 'Here you can manage your units.');
 
 
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterMembers'] = array('(firefighter) List of members', 'Phone and birthday list');
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperations'] = array('(firefighter) Operation table', 'Filterable operation table');
-$GLOBALS['TL_LANG']['FMD']['C4GFirefighterOperationList'] = array('(firefighter) List of operations', 'Simple list of operations');
+$GLOBALS['TL_LANG']['FMD'][\con4gis\FirefighterBundle\Controller\C4gFirefighterMembersController::TYPE] = array('(firefighter) List of members', 'Phone and birthday list');
+$GLOBALS['TL_LANG']['FMD'][\con4gis\FirefighterBundle\Controller\C4gFirefighterOperationsController::TYPE] = array('(firefighter) Operation table', 'Filterable operation table');
+$GLOBALS['TL_LANG']['FMD'][\con4gis\FirefighterBundle\Controller\C4gFirefighterOperationListController::TYPE] = array('(firefighter) List of operations', 'Simple list of operations');
 
