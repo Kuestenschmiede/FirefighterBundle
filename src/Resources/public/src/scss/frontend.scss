@@ -7,20 +7,47 @@
  * @copyright (c) 2010-2022, by Küstenschmiede GmbH Software & Design
  * @link https://www.con4gis.org
  */
+$fa-font-path: "public/bundles/con4gismaps/scss/fontawesome/webfonts";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands";
+
+@font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: $fa-font-display;
+    src: url('#{$fa-font-path}/fa-solid-900.eot');
+    src: url('#{$fa-font-path}/fa-solid-900.eot?#iefix') format('embedded-opentype'),
+    url('#{$fa-font-path}/fa-solid-900.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-solid-900.woff') format('woff'),
+    url('#{$fa-font-path}/fa-solid-900.ttf') format('truetype'),
+    url('#{$fa-font-path}/fa-solid-900.svg#fontawesome') format('svg');
+}
+
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g_tab_0{
     margin: 0;
 }
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_0 {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     content: "\f46d";
 }
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_1 {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     content: "\f5a0";
 }
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_2 {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     content: "\f1b9";
 }
 
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3 {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     content: "\f030";
 }
 
@@ -28,15 +55,14 @@ li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-active.c4g_tab_0,
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_1,
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_2,
 li.c4gGuiTabLink.c4g__tabs-anchor.c4g__tabs-tab.c4g__state-default.c4g_tab_3 {
-    //font: normal normal normal 14px/1 FontAwesome;
-    //font-weight: 900;
     -webkit-font-smoothing: antialiased;
     display: inline-block;
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
     line-height: 1;
-    //font-family: "Font Awesome 5 Free";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     margin-right: 0px;
 }
 

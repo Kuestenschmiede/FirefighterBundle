@@ -62,7 +62,7 @@ class C4gFirefighterOperationListController extends C4GBaseController
     protected $loadClearBrowserUrlResources = true;
     protected $jQueryAddCore = true;
     protected $jQueryAddJquery = true;
-    protected $jQueryAddJqueryUI = false;
+    protected $jQueryAddJqueryUI = true;
     protected $jQueryUseTree = false;
     protected $jQueryUseTable = false;
     protected $jQueryUseHistory = false;
