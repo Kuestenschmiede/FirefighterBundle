@@ -1,0 +1,37 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  ## Load Layers (event from MapsBundle)
+  firefighter.onAddLocations:
+    class: con4gis\FirefighterBundle\Classes\C4GFirefighterFrontend
+    tags:
+      - { name: kernel.event_listener, event: maps.layers.load, method: onAddLocation }
+
+  con4gis\FirefighterBundle\Controller\C4gFirefighterOperationsController:
+    arguments:
+      - '%kernel.project_dir%'
+      - "@session"
+      - "@contao.framework"
+    public: true
+    tags:
+      - { name: contao.frontend_module,category: con4gis,template: mod_c4g_brick,type: C4gFirefighterOperations }
+
+  con4gis\FirefighterBundle\Controller\C4gFirefighterOperationListController:
+    arguments:
+      - '%kernel.project_dir%'
+      - "@session"
+      - "@contao.framework"
+    public: true
+    tags:
+      - { name: contao.frontend_module,category: con4gis,template: mod_c4g_brick,type: C4gFirefighterOperationList }
+
+  con4gis\FirefighterBundle\Controller\C4gFirefighterMembersController:
+    arguments:
+      - '%kernel.project_dir%'
+      - "@session"
+      - "@contao.framework"
+    public: true
+    tags:
+      - { name: contao.frontend_module,category: con4gis,template: mod_c4g_brick,type: C4gFirefighterMembers }

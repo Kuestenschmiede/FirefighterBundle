@@ -15,35 +15,36 @@
   "require": {
     "php": "^7.4 || ^8.0",
     "contao/core-bundle": "^4.4",
-    "con4gis/core": "^6.0.0",
-    "con4gis/projects": "^4.0.0",
-    "con4gis/maps": "^8.1.0"
+    "con4gis/core": "^6.0.15",
+    "con4gis/projects": "^4.0.30",
+    "con4gis/maps": "^8.1.20"
   },
   "conflict": {
     "contao/core": "*",
     "contao/manager-plugin": "<2.0 || >=3.0"
   },
-  "autoload": {
-    "psr-4": {
-      "con4gis\\FirefighterBundle\\": ""
-    },
-    "classmap": [
-      "Resources/contao/"
-    ],
-    "exclude-from-classmap": [
-      "Resources/contao/config/",
-      "Resources/contao/dca/",
-      "Resources/contao/languages/",
-      "Resources/contao/templates/"
-    ]
-  },
   "support": {
     "issues": "https://github.com/Kuestenschmiede/FirefighterBundle/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "con4gis\\FirefighterBundle\\": "src/"
+    },
+    "classmap": [
+      "src/Classes/",
+      "src/Resources/contao/"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config/",
+      "src/Resources/contao/dca/",
+      "src/Resources/contao/languages/",
+      "src/Resources/contao/templates/"
+    ]
   },
   "config": {
     "preferred-install": "dist"
   },
-  "extra": {
+  "extra":{
     "contao-manager-plugin": "con4gis\\FirefighterBundle\\ContaoManager\\Plugin"
   }
 }
