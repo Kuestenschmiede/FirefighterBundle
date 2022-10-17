@@ -14,10 +14,10 @@
   ],
   "require": {
     "php": "^7.4 || ^8.0",
-    "contao/core-bundle": "^4.4",
-    "con4gis/core": "^6.0.15",
-    "con4gis/projects": "^4.0.30",
-    "con4gis/maps": "^8.1.20"
+    "contao/core-bundle": "^4.9",
+    "con4gis/core": "^6.0.16",
+    "con4gis/projects": "^4.0.31",
+    "con4gis/maps": "^v8.1.23"
   },
   "conflict": {
     "contao/core": "*",
