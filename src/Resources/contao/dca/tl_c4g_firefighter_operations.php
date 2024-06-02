@@ -558,7 +558,7 @@ class tl_c4g_firefighter_operations extends Backend
             $this->redirect($this->getReferer());
         }
 
-        $href .= '&amp;id='.Input::get('id').'&amp;tid='.$row['id'].'&amp;state='.$row['published'];
+        $href .= '&amp;id='.Input::get('id').'&amp;tid='.$row['id'].'&amp;state='.($row['published'] ? '' : 1);
 
         if (!$row['published'])
         {
