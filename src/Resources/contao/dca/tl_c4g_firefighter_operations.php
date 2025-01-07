@@ -525,8 +525,8 @@ class tl_c4g_firefighter_operations extends Backend
         // Add time
         if ($dc->activeRecord->addTime)
         {
-            $arrSet['startTime'] = strtotime(date('Y-m-d', $arrSet['startTime']) . ' tl_c4g_firefighter_operations.php' . date('H:i:s', $dc->activeRecord->startTime));
-            $arrSet['endTime'] = strtotime(date('Y-m-d', $arrSet['endTime']) . ' tl_c4g_firefighter_operations.php' . date('H:i:s', $dc->activeRecord->endTime));
+            $arrSet['startTime'] = strtotime(date('Y-m-d', $arrSet['startTime']) . ' ' . date('H:i:s', $dc->activeRecord->startTime));
+            $arrSet['endTime'] = strtotime(date('Y-m-d', $arrSet['endTime']) . ' ' . date('H:i:s', $dc->activeRecord->endTime));
         }
 
         // Adjust end time of "all day" events
