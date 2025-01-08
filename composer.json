@@ -17,7 +17,7 @@
     "contao/core-bundle": "^4.9",
     "con4gis/core": "^6.0 || ^7.0",
     "con4gis/projects": "^4.0",
-    "con4gis/maps": "^8.1"
+    "con4gis/maps": "^8 || ^9"
   },
   "conflict": {
     "contao/core": "*",
