@@ -1,4 +1,7 @@
 # con4gis-FirefighterBundle
+> [!IMPORTANT]  
+> We are not actively developing this con4gis module. Further development orders are possible.
+
 ## Overview
 With the Firefighter Bundle firefighter missions can be managed in the Contao backend and displayed in a mission map or list in the frontend.
 ## Installation
